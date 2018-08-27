@@ -7,9 +7,9 @@
         <p>{{bucketListItem.title}}</p>
       </div>
       <div class="col-sm-2 form-group">
-        <p>{{bucketListItem.completeness}}</p>
         <label for="completed">Completed</label>
-        <input type="checkbox" name="completed" [checked] = "bucketListItem.completeness">
+        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false)" #complete>
+        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true)" #complete>
       </div>
       <div class="col-sm-2">
         <p>{{bucketListItem.category}}</p>

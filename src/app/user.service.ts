@@ -19,6 +19,10 @@ export class UserService {
     return this.database.object('users/' + userId);
   }
 
+  getUserBucketListItemById(userId: string, bucketItemIndex: string) {
+    return this.database.object('users/' + userId + '/bucketlist/' + bucketItemIndex);
+  }
+
   updateDatabase(newUser: User){
     this.users.push(newUser);
   }
