@@ -1,3 +1,22 @@
-<p>
-  bucket-list works!
-</p>
+<div class="container top">
+  <div>
+    <h1><b>{{(userFromDatabase | async)?.name}}'s Bucketlist</b></h1>
+    <p><b>{{(userFromDatabase | async)?.contact}}</b></p>
+    <div *ngFor = "let bucketListItem of (userFromDatabase | async)?.bucketlist" class="row">
+      <div class="col-sm-5">
+        <p>{{bucketListItem.title}}</p>
+      </div>
+      <div class="col-sm-2 form-group">
+        <p>{{bucketListItem.completeness}}</p>
+        <label for="completed">Completed</label>
+        <input type="checkbox" name="completed" [checked] = "bucketListItem.completeness">
+      </div>
+      <div class="col-sm-2">
+        <p>{{bucketListItem.category}}</p>
+      </div>
+      <div class="col-sm-3">
+        <p>{{bucketListItem.dateAdded}}</p>
+      </div>
+    </div>
+    </div>
+  </div>
