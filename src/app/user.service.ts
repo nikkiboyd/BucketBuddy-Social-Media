@@ -11,6 +11,10 @@ export class UserService {
   this.users = database.list('users')
   }
 
+  addUser(newUser: User) {
+    this.users.push(newUser);
+  }
+
   getUsers(){
     return this.users;
   }
