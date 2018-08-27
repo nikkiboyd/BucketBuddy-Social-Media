@@ -1,0 +1,24 @@
+{ "users": [{
+    "name": "Ryan Putman",
+    "age": 28,
+    "bio": "If you're a programmer, you've likely heard of Ryan Putman. His list of credentials is lengthy, and if he really wanted to, he could go on and on and on about his accomplishments.",
+    "contact": "5034407074",
+    "bucketlist": [{
+      "title": "Swim in the world's largest swimming pool in San Alfonso del Mar resort in Algarrobo, Chile.",
+      "completeness": true,
+      "category": "Sports",
+      "dateAdded": "Oct 26, 2012 1:40:23 AM"
+    },
+    {
+      "title": "Visit a winery in France.",
+      "completeness": false,
+      "category": "Restaurants",
+      "dateAdded": "Oct 28, 2010 8:40:23 PM"
+    }],
+    "friends": [],
+    "username": "putman10",
+    "password": "epicodus2018",
+    "email": "putman10@me.com"
+    }
+  ]
+}
