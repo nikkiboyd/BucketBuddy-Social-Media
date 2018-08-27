@@ -15,10 +15,11 @@
       "category": "Restaurants",
       "dateAdded": "Oct 28, 2010 8:40:23 PM"
     }],
-    "friends": [],
+    "friends": ["John Latham"],
     "username": "putman10",
     "password": "epicodus2018",
-    "email": "putman10@me.com"
+    "email": "putman10@me.com",
+    "comments": ["I will visit France with you"]
     }
   ]
 }
