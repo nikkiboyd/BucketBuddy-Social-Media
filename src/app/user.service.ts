@@ -26,14 +26,12 @@ export class UserService {
   }
 
   getUserBucketList(userId: string) {
-    console.log(this.database.list('users/' + userId + '/bucketlist/'));
     return this.database.list('users/' + userId + '/bucketlist/')
   }
 
   addNewBucketItem(newBucketItem: BucketList, userId: string){
     this.bucketList = this.database.list('users/' + userId + '/bucketlist/');
     this.bucketList.push(newBucketItem);
-    console.log(this.bucketList);
   }
 
   updateDatabase(newUser: User){

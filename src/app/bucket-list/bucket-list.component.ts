@@ -27,21 +27,25 @@ export class BucketListComponent implements OnInit {
     this.allUsersFromDatabase.subscribe(dataLastEmittedFromObserver => {
       dataLastEmittedFromObserver.forEach(function(user){
         for(let r = 0; r < user.bucketlist.length; r++){
-          categoryList.push(user.bucketlist[r].category);
+          if(user.bucketlist[r].category !== undefined){
+            categoryList.push(user.bucketlist[r].category);
+          }
         }
       });
       this.allCategories = categoryList;
+      console.log(this.allCategories)
     });
-    this.userFromDatabase = this.userService.getUserById("0");
     this.userBucketList = this.userService.getUserBucketList("0");
-    this.userFromDatabase.subscribe(dataLastEmittedFromObserver => {
-      this.userFromDatabaseObject = dataLastEmittedFromObserver;
 
+    this.userFromDatabase = this.userService.getUserById("0");
+    this.userBucketList.subscribe(dataLastEmittedFromObserver => {
+      this.userFromDatabaseObject = dataLastEmittedFromObserver;
     });
   };
 
   changeStatusToTrue(taskTitle:string, completeness: string){
-    let index = this.userFromDatabaseObject.bucketlist.findIndex(i => i.title === taskTitle);
+    console.log(this.userBucketList);
+    let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
     let bucketListTrue = this.userService.getUserBucketListItemById("0", index);
 
       bucketListTrue.update({
@@ -50,7 +54,7 @@ export class BucketListComponent implements OnInit {
     }
 
     changeStatusToFalse(taskTitle:string, completeness: string){
-      let index = this.userFromDatabaseObject.bucketlist.findIndex(i => i.title === taskTitle);
+      let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
       let bucketListFalse = this.userService.getUserBucketListItemById("0", index);
 
       bucketListFalse.update({
@@ -62,6 +66,5 @@ export class BucketListComponent implements OnInit {
         let currentDate = new Date().toString();
         let newBucketItem = new BucketList(category, false, currentDate, title);
         this.userService.addNewBucketItem(newBucketItem, "0");
-
       }
 }
