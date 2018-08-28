@@ -4,16 +4,16 @@
     <div id="newBucketItem">
       <h3>Add New Bucket Item</h3>
       <div class="form-group">
-        <label for="">Title:</label>
-        <input class="form-control" type="text" name="" value="">
+        <label for="title">Title:</label>
+        <input class="form-control" type="text" name="title" #title>
       </div>
       <div class="form-group">
         <label for="">Category:</label>
-        <select class="form-control" name="categories">
-          <option *ngFor = "let category of allCategories | unique" value="{{category}}">{{category}}</option>
+        <select class="form-control" name="categories" #category>
+          <option *ngFor = "let category of allCategories | unique" value="{{category}}" >{{category}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-info" name="button">Submit</button>
+      <button type="button" class="btn btn-info" name="button" (click)="saveNewBucketItem(title.value, category.value)">Submit</button>
     </div>
 
     <div class="row align-center header">

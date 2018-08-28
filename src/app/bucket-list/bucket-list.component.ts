@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
+import { BucketList } from '../models/bucketlist.model';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
@@ -52,5 +53,13 @@ export class BucketListComponent implements OnInit {
       bucketListFalse.update({
         completeness: false,
       });
+      }
+
+      saveNewBucketItem(title:string, category: string){
+        let currentDate = new Date().toString();
+        let newBucketItem = new BucketList(category, false, currentDate, title);
+        let bucketList = this.userService.getUserBucketList("0");
+        bucketList.push(newBucketItem);
+
       }
 }
