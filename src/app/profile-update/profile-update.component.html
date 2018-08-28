@@ -2,10 +2,10 @@
 <h4>Edit Profile</h4>
 <form>
   <label>Name:</label>
-  <input #newName placeholder="{{(currentUser | async)?.name}}"/>
+  <input #newName value="{{(currentUser | async)?.name}}"/>
   <label>Age:</label>
-  <input placeholder="{{(currentUser | async)?.age}}"/>
+  <input #newAge value="{{(currentUser | async)?.age}}"/>
   <label>Bio:</label>
-  <textarea  rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
-  <button (click)="updateUserProfile(newName.value)">Update</button>
+  <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
+  <button (click)="updateUserProfile(newName.value, newAge.value, newBio.value)">Update</button>
 </form>

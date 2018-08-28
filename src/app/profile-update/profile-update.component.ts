@@ -14,6 +14,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 export class ProfileUpdateComponent implements OnInit {
   currentUser;
+  // userFromDb = firebase.auth().currentUser;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
 
@@ -24,8 +25,10 @@ export class ProfileUpdateComponent implements OnInit {
   updateUserProfile(newName: string, newAge: string, newBio: string){
     this.currentUser.update({
       name: newName,
+      age: newAge,
+      bio: newBio
     });
-    console.log(newName)
+    // console.log(userFromDb.indentifier)
   }
 
 }
