@@ -11,12 +11,16 @@ export class CompletedPipe implements PipeTransform {
 
   transform(input: BucketList[]){
     let filteredArray = [];
-    input.forEach(function(element){
-          if(element.completeness == true){
-            filteredArray.push(element);
-          } else {
-          }
-    });
+    if(input !== null){
+      input.forEach(function(element){
+            if(element.completeness == true){
+              filteredArray.push(element);
+              console.log(element.completeness)
+            } else {
+            }
+      });
+    }
+
     return filteredArray;
   }
 }

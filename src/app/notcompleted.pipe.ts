@@ -11,6 +11,7 @@ export class NotCompletedPipe implements PipeTransform {
 
   transform(input: BucketList[]){
     let filteredArray = [];
+      if(input !== null){
     input.forEach(function(element){
           if(element.completeness == false){
             filteredArray.push(element);
@@ -18,5 +19,5 @@ export class NotCompletedPipe implements PipeTransform {
           }
     });
     return filteredArray;
-  }
+  }};
 }
