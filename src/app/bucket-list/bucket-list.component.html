@@ -1,6 +1,9 @@
 <div class="container top">
   <div>
     <h1><b>{{(userFromDatabase | async)?.name}}'s Bucketlist</b></h1>
+    <p *ngFor = "let user of allCategories">
+      {{user}}
+    </p>
     <div id="newBucketItem">
       <h3>Add New Bucket Item</h3>
       <div class="form-group">
