@@ -33,7 +33,7 @@
         <h4>Delete</h4>
       </div>
     </div>
-    <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row">
+    <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
       <div class="col-sm-3">
           <p id="item-title">{{bucketListItem.title}}</p>
       </div>
@@ -48,11 +48,10 @@
         <p>{{bucketListItem.dateAdded}}</p>
       </div>
       <div class="col-sm-2">
-        <p><button type="button" class="btn btn-info" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
+        <p><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
       </div>
     </div>
-    <br>
-    <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row">
+    <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row completed">
       <div class="col-sm-3">
           <p id="item-title">{{bucketListItem.title}}</p>
       </div>
@@ -67,7 +66,7 @@
         <p>{{bucketListItem.dateAdded}}</p>
       </div>
       <div class="col-sm-2">
-        <p><button type="button" class="btn btn-info" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
+        <p><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
       </div>
     </div>
     </div>

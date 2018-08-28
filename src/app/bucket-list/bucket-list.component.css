@@ -1,12 +1,18 @@
-.row {
+.completed,
+.notCompleted {
     border: 1px solid black;
     padding: 10px;
-    border-bottom: 0px;
+    border-bottom-width: 0px;
+}
+.completed{
+  background: #e8e8e8;
 }
 
-.row:last-of-type {
-    border-bottom: 1px solid black;
+.completed:last-of-type,
+.notCompleted:last-of-type {
+    border-bottom-width: 1px;
 }
+
 
 .row p {
   margin-bottom: 0px;
