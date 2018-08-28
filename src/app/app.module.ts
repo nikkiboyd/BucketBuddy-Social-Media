@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { UniquePipe } from './unique.pipe';
 import { HomeComponent } from './home/home.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -26,7 +28,9 @@ export const firebaseConfig = {
     AppComponent,
     BucketListComponent,
     UniquePipe,
-    HomeComponent
+    HomeComponent,
+    ProfileUpdateComponent,
+    ProfileUserComponent
   ],
   imports: [
     BrowserModule,
