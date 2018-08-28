@@ -33,8 +33,13 @@ justify-content: left;
 
 
 .row .col-sm-5,
-.row .col-sm-2 {
+.row .col-sm-2,
+.row .col-sm-3 {
     border-right: 1px dashed black;
+}
+
+.row .col-sm-2:last-of-type {
+    border-right: 0px;
 }
 
 .align-center {
@@ -51,6 +56,6 @@ justify-content: left;
     color: white;
 }
 
-.header h3{
+.header h4{
   margin-bottom:0px;
 }
