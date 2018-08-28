@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from './models/user.model';
 import { BucketList } from './models/bucketlist.model';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 
 @Injectable()
 export class UserService {
   users: FirebaseListObservable<any[]>;
-  bucketList: FirebaseObjectObservable<any[]>;
+  bucketList: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
   this.users = database.list('users')
@@ -26,8 +26,12 @@ export class UserService {
   }
 
   getUserBucketList(userId: string) {
-    this.bucketList = this.database.object('users/' + userId + '/bucketlist/')
-    this.bucketList.child("test");
+    return this.database.object('users/' + userId + '/bucketlist/')
+  }
+
+  addNewBucketItem(newBucketItem: BucketList, userId: string){
+    this.bucketList = this.database.list('users/' + userId + '/bucketlist/');
+    this.bucketList.push(newBucketItem);
   }
 
   updateDatabase(newUser: User){

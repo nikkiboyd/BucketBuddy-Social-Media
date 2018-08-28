@@ -59,7 +59,7 @@ export class BucketListComponent implements OnInit {
         let currentDate = new Date().toString();
         let newBucketItem = new BucketList(category, false, currentDate, title);
         let bucketList = this.userService.getUserBucketList("0");
-        bucketList.push(newBucketItem);
+        this.userService.addNewBucketItem(newBucketItem, "0");
 
       }
 }
