@@ -21,40 +21,35 @@ export class BucketListComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
   ngOnInit() {
     this.allUsersFromDatabase = this.userService.getUsers();
-    let test = [];
+    let categoryList = [];
     this.allUsersFromDatabase.subscribe(dataLastEmittedFromObserver => {
-
       dataLastEmittedFromObserver.forEach(function(user){
-
         for(let r = 0; r < user.bucketlist.length; r++){
-          test.push(user.bucketlist[r].category);
+          categoryList.push(user.bucketlist[r].category);
         }
-
       });
-this.allCategories.push(test);
+      this.allCategories = categoryList;
     });
-
     this.userFromDatabase = this.userService.getUserById("0");
     this.userFromDatabase.subscribe(dataLastEmittedFromObserver => {
       this.userFromDatabaseObject = dataLastEmittedFromObserver;
     });
-
   };
 
   changeStatusToTrue(taskTitle:string, completeness: string){
     let index = this.userFromDatabaseObject.bucketlist.findIndex(i => i.title === taskTitle);
-    let test = this.userService.getUserBucketListItemById("0", index);
+    let bucketListTrue = this.userService.getUserBucketListItemById("0", index);
 
-      test.update({
+      bucketListTrue.update({
         completeness: true,
       });
     }
 
     changeStatusToFalse(taskTitle:string, completeness: string){
       let index = this.userFromDatabaseObject.bucketlist.findIndex(i => i.title === taskTitle);
-      let test = this.userService.getUserBucketListItemById("0", index);
+      let bucketListFalse = this.userService.getUserBucketListItemById("0", index);
 
-      test.update({
+      bucketListFalse.update({
         completeness: false,
       });
       }
