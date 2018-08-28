@@ -37,4 +37,10 @@ export class UserService {
   updateDatabase(newUser: User){
     this.users.push(newUser);
   }
+
+  deleteBucketItem(bucketItemId: string){
+    let userId = "0";
+    let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
+    bucketListItem.remove();
+  }
 }

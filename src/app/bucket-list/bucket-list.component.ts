@@ -54,4 +54,8 @@ export class BucketListComponent implements OnInit{
         let newBucketItem = new BucketList(category, false, currentDate, title);
         this.userService.addNewBucketItem(newBucketItem, "0");
       }
+
+      deleteBucketItem(bucketItemKey: string){
+        this.userService.deleteBucketItem(bucketItemKey);
+      }
 }
