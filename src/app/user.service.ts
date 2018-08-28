@@ -8,7 +8,7 @@ export class UserService {
   users: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-  this.users = database.list('users')
+  this.users = database.list('users');
   }
 
   getUsers(){
@@ -22,4 +22,5 @@ export class UserService {
   updateDatabase(newUser: User){
     this.users.push(newUser);
   }
+
 }

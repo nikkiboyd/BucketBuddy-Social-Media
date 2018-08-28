@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { HomeComponent } from './home/home.component';
+import { BuddyListComponent } from './buddy-list/buddy-list.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -23,7 +24,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     BucketListComponent,
-    HomeComponent
+    HomeComponent,
+    BuddyListComponent
   ],
   imports: [
     BrowserModule,
