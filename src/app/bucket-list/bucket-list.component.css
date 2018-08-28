@@ -59,3 +59,7 @@ justify-content: left;
 .header h4{
   margin-bottom:0px;
 }
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    opacity: 1;
+}
