@@ -2,7 +2,7 @@
   <div class="bucketBox">
     <h1><b>{{(userFromDatabase | async)?.name}}'s Bucketlist</b></h1>
     <div id="newBucketItem">
-      <h3>Add New Bucket Item</h3>
+      <h4>Add New Bucket Item</h4>
       <div class="form-group">
         <label for="title">Title:</label>
         <input class="form-control" type="text" name="title" #title>
@@ -13,7 +13,7 @@
           <option *ngFor = "let category of allCategories | unique" value="{{category}}" >{{category}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-info" name="button" (click)="saveNewBucketItem(title.value, category.value)">Submit</button>
+      <button type="button" class="btn btn-info" name="button" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '">Submit</button>
     </div>
 
     <div class="row align-center header">
@@ -27,7 +27,7 @@
         <h4>Category</h4>
       </div>
       <div class="col-sm-3">
-        <h4>Date Added</h4>
+        <h4>Timeline</h4>
       </div>
       <div class="col-sm-2">
         <h4>Delete</h4>
@@ -66,7 +66,8 @@
         <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p class="vertical-align">{{bucketListItem.dateAdded}}</p>
+        <p class="vertical-align">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
+        <p class="vertical-align">Completed: {{bucketListItem.dateCompleted}}</p>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align"><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
@@ -75,7 +76,7 @@
     <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row completed">
       <div class="col-sm-3">
         <div class="vertical-align">
-          <p  id="item-title"><a routerLink="/bucketItems/{{bucketListItem.$key}}">{{bucketListItem.title}}</a></p>
+          <p  id="item-title">{{bucketListItem.title}}</p>
         </div>
       </div>
       <div class="col-sm-2 check">
@@ -98,7 +99,8 @@
         <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p class="vertical-align">{{bucketListItem.dateAdded}}</p>
+        <p class="vertical-align">Date Added: {{bucketListItem.dateAdded | date:'short'}}</p>
+        <p class="vertical-align">Completed: {{bucketListItem.dateCompleted | date:'short'}}</p>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align"><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>

@@ -34,9 +34,11 @@ export class BucketListComponent implements OnInit{
   changeStatusToTrue(taskTitle:string, completeness: string, keyId:string){
     let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
     let bucketListTrue = this.userService.getUserBucketListItemById("0", keyId);
+    let currentDate = new Date().toString();
 
       bucketListTrue.update({
         completeness: true,
+        dateCompleted: currentDate
       });
     }
 
@@ -46,12 +48,13 @@ export class BucketListComponent implements OnInit{
 
       bucketListFalse.update({
         completeness: false,
+        dateCompleted: "N/A"
       });
       }
 
       saveNewBucketItem(title:string, category: string){
         let currentDate = new Date().toString();
-        let newBucketItem = new BucketList(category, false, currentDate, title);
+        let newBucketItem = new BucketList(category, false, currentDate, "N/A", title);
         this.userService.addNewBucketItem(newBucketItem, "0");
       }
 
@@ -60,13 +63,10 @@ export class BucketListComponent implements OnInit{
       }
 
       enableEditor(bucketItemKey: string){
-        console.log(bucketItemKey)
         this.editor = bucketItemKey;
       }
       editTitle(bucketItemKey: string, newTitle: string){
         this.editor = 0;
-        console.log(this.editor);
-        console.log(newTitle);
         this.userService.updateBucketItemTitle(bucketItemKey, newTitle);
       }
 }
