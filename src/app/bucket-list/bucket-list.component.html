@@ -33,7 +33,26 @@
         <h4>Delete</h4>
       </div>
     </div>
-    <div *ngFor = "let bucketListItem of userBucketList | async" class="row">
+    <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row">
+      <div class="col-sm-3">
+          <p id="item-title">{{bucketListItem.title}}</p>
+      </div>
+      <div class="col-sm-2">
+        <p><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
+        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
+      </div>
+      <div class="col-sm-2">
+        <p>{{bucketListItem.category}}</p>
+      </div>
+      <div class="col-sm-3">
+        <p>{{bucketListItem.dateAdded}}</p>
+      </div>
+      <div class="col-sm-2">
+        <p><button type="button" class="btn btn-info" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
+      </div>
+    </div>
+    <br>
+    <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row">
       <div class="col-sm-3">
           <p id="item-title">{{bucketListItem.title}}</p>
       </div>

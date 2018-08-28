@@ -12,6 +12,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { UniquePipe } from './unique.pipe';
+import { CompletedPipe } from './completed.pipe';
+import { NotCompletedPipe } from './notcompleted.pipe';
 import { HomeComponent } from './home/home.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
@@ -28,6 +30,8 @@ export const firebaseConfig = {
     AppComponent,
     BucketListComponent,
     UniquePipe,
+    CompletedPipe,
+    NotCompletedPipe,
     HomeComponent,
     ProfileUpdateComponent,
     ProfileUserComponent
