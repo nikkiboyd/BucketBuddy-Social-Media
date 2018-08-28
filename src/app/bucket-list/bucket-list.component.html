@@ -1,5 +1,5 @@
 <div class="container top">
-  <div>
+  <div class="bucketBox">
     <h1><b>{{(userFromDatabase | async)?.name}}'s Bucketlist</b></h1>
     <div id="newBucketItem">
       <h3>Add New Bucket Item</h3>
@@ -46,9 +46,21 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-2">
-        <p class="vertical-align"><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
-        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
+      <div class="col-sm-2 check">
+        <div class="pretty p-icon p-round p-tada" *ngIf="bucketListItem.completeness == true">
+              <input type="checkbox" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, true, bucketListItem.$key)"/>
+              <div class="state p-primary-o">
+                  <i class="fa fa-heart icon mdi mdi-heart" aria-hidden="true"></i>
+                  <label></label>
+              </div>
+          </div>
+        <div class="pretty p-icon p-round p-tada" *ngIf="bucketListItem.completeness == false">
+              <input type="checkbox" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)"/>
+              <div class="state p-primary-o">
+                  <i class="fa fa-heart icon mdi mdi-heart" aria-hidden="true"></i>
+                  <label></label>
+              </div>
+          </div>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align">{{bucketListItem.category}}</p>
@@ -66,9 +78,21 @@
           <p  id="item-title"><a routerLink="/bucketItems/{{bucketListItem.$key}}">{{bucketListItem.title}}</a></p>
         </div>
       </div>
-      <div class="col-sm-2">
-        <p class="vertical-align"><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
-        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
+      <div class="col-sm-2 check">
+        <div class="pretty p-icon p-round p-tada" *ngIf="bucketListItem.completeness == true">
+              <input type="checkbox" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, true, bucketListItem.$key)"/>
+              <div class="state p-primary-o">
+                  <i class="fa fa-heart icon mdi mdi-heart" aria-hidden="true"></i>
+                  <label></label>
+              </div>
+          </div>
+        <div class="pretty p-icon p-round p-tada" *ngIf="bucketListItem.completeness == false">
+              <input type="checkbox" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)"/>
+              <div class="state p-primary-o">
+                  <i class="fa fa-heart icon mdi mdi-heart" aria-hidden="true"></i>
+                  <label></label>
+              </div>
+          </div>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align">{{bucketListItem.category}}</p>
@@ -81,4 +105,4 @@
       </div>
     </div>
     </div>
-  </div>
+</div>

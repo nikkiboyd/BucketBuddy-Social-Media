@@ -66,7 +66,7 @@ text-align: center;
 
 .header{
     margin-top: 2rem;
-    background: #025aa5;
+    background: #ff3d00;
     color: white;
     border: 1px solid black;
     padding: 10px;
@@ -81,4 +81,35 @@ text-align: center;
   width: 21px;
   margin-left: 10px;
   float: right;
+}
+
+.check{
+  text-align: center;
+}
+
+.pretty {
+    font-size: 40px;
+    margin-right: 0px;
+}
+
+.pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
+    color: #ff3d00;
+    stroke: #ff3d00;
+}
+
+.pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
+    border-color: #ff3d00;
+}
+
+.bucketBox a{
+  color:#ff3d00;
+  font-weight: 700;
+}
+
+.bucketBox a:hover{
+  color:black;
+}
+
+.fa-heart:before {
+    font-size: 29px;
 }
