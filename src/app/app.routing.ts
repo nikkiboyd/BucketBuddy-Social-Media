@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
-
+import { ProfileUpdateComponent } from './profile-update/profile-update.component'
 const appRoutes: Routes = [
   {
      path: '',
@@ -16,6 +16,10 @@ const appRoutes: Routes = [
     {
       path: 'profileuser',
       component: ProfileUserComponent
+    },
+    {
+      path: 'profileuser/update',
+      component: ProfileUpdateComponent
     }
  ];
 
