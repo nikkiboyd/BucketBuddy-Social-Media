@@ -1,0 +1,106 @@
+<nav class="navbar navbar-default deep-orange darken-1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img class="bucket-logo" src="/assets/bucketbuddy.png" />
+      <a class="navbar-brand" routerLink="">Bucket Buddy</a>
+    </div>
+    <div *ngIf="isLoggedIn" class="welcome">
+      <a class="navbar-brand">Hey, {{userName}}!</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="isLoggedIn">
+        <a (click)="logout()">Log out</a>
+      </li>
+      <li *ngIf ="!isLoggedIn">
+        <a (click)="login()">Log in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="log-in">
+    <h2>Log in</h2>
+    <h6>Welcome back, we've missed you!</h6>
+    <hr>
+    <form ngNativeValidate>
+      <!-- <div class="form-group row">
+        <label for="loginUsername" class="col-sm-4 col-form-label">Username:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="loginUsername" placeholder="bucketbuddy" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="loginPassword" class="col-sm-4 col-form-label">Password:</label>
+        <div class="col-sm-8">
+          <input type="password" class="form-control" id="loginPassword" placeholder="••••••••••••" required>
+        </div>
+      </div> -->
+      <div *ngIf ="!isLoggedIn" class="btn white darken-4 col s10 m4">
+         <a (click)="login()" style="text-transform:none">
+             <div class="left">
+                 <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+             </div>
+            <p class="google-login">Login with Google</p>
+         </a>
+      </div>
+    </form>
+  </div>
+
+  <div class="sign-up">
+    <h2>Create an account</h2>
+    <h6>Ready to kick items off your bucket list? Join the fun, it's free!</h6>
+    <hr>
+    <form ngNativeValidate>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input #newUsername type="text" class="form-control" id="inputUsername" placeholder="Username" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <input #newPassword type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input #newFirstName type="text" class="form-control" id="inputFirstName" placeholder="First name" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <input #newLastName type="text" class="form-control" id="inputLastName" placeholder="Last name" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input #newPhone type="number" class="form-control" id="inputPhone" placeholder="Phone" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <input #newEmail type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-12">
+            <input #newBirthdate class="form-control" type="date" value="0000-00-00" id="inputBirthdate" required>
+          </div>
+        </div>
+      </div>
+      <!-- <button (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" type="submit" class="btn btn-primary">Sign Up</button> -->
+      <a id="sign-up" (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" class="deep-orange accent-3 btn-large"><i class="material-icons icon-white right">face</i>SIGN UP!</a>
+    </form>
+  </div>
+</div>

@@ -16,7 +16,6 @@ export class BucketListComponent implements OnInit{
   userFromDatabase;
   userFromDatabaseObject;
   allUsersFromDatabase;
-  allUsersFromDatabaseObject;
   userBucketList;
   allCategories = ["Achievement", "Adventure",
 "Body & Health","Career","Charity","Creative","Cultural","Events","Family & Kids","Financial","Food & Drink","Personal Development","Relationship","Sports","Travel"];
