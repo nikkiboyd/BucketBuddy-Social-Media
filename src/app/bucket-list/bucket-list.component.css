@@ -93,8 +93,8 @@ text-align: center;
 }
 
 .pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
-    color: #ff3d00;
-    stroke: #ff3d00;
+    color: black;
+    stroke: black;
 }
 
 .pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
