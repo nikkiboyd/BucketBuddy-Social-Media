@@ -30,7 +30,7 @@
         <h3>Date Added</h3>
       </div>
     </div>
-    <div *ngFor = "let bucketListItem of (userFromDatabase | async)?.bucketlist" class="row">
+    <div *ngFor = "let bucketListItem of userBucketList | async" class="row">
       <div class="col-sm-5">
         <p id="item-title">{{bucketListItem.title}}</p>
       </div>

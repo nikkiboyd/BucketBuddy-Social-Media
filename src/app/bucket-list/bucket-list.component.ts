@@ -17,6 +17,7 @@ export class BucketListComponent implements OnInit {
   userFromDatabaseObject;
   allUsersFromDatabase;
   allUsersFromDatabaseObject;
+  userBucketList;
   allCategories = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
@@ -32,8 +33,10 @@ export class BucketListComponent implements OnInit {
       this.allCategories = categoryList;
     });
     this.userFromDatabase = this.userService.getUserById("0");
+    this.userBucketList = this.userService.getUserBucketList("0");
     this.userFromDatabase.subscribe(dataLastEmittedFromObserver => {
       this.userFromDatabaseObject = dataLastEmittedFromObserver;
+
     });
   };
 
@@ -58,7 +61,6 @@ export class BucketListComponent implements OnInit {
       saveNewBucketItem(title:string, category: string){
         let currentDate = new Date().toString();
         let newBucketItem = new BucketList(category, false, currentDate, title);
-        let bucketList = this.userService.getUserBucketList("0");
         this.userService.addNewBucketItem(newBucketItem, "0");
 
       }
