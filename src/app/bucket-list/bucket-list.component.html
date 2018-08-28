@@ -13,7 +13,7 @@
           <option *ngFor = "let category of allCategories | unique" value="{{category}}" >{{category}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-info" name="button" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '">Submit</button>
+      <button type="button" class="btn btn-danger" name="button" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '">Submit</button>
     </div>
 
     <div class="row align-center header">
