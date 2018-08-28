@@ -43,19 +43,18 @@ export class BucketListComponent implements OnInit {
     });
   };
 
-  changeStatusToTrue(taskTitle:string, completeness: string){
-    console.log(this.userBucketList);
+  changeStatusToTrue(taskTitle:string, completeness: string, keyId:string){
     let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-    let bucketListTrue = this.userService.getUserBucketListItemById("0", index);
+    let bucketListTrue = this.userService.getUserBucketListItemById("0", keyId);
 
       bucketListTrue.update({
         completeness: true,
       });
     }
 
-    changeStatusToFalse(taskTitle:string, completeness: string){
+    changeStatusToFalse(taskTitle:string, completeness: string, keyId:string){
       let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-      let bucketListFalse = this.userService.getUserBucketListItemById("0", index);
+      let bucketListFalse = this.userService.getUserBucketListItemById("0", keyId);
 
       bucketListFalse.update({
         completeness: false,
