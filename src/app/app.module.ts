@@ -6,10 +6,12 @@ import { routing } from './app.routing';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
+import { UniquePipe } from './unique.pipe';
 import { HomeComponent } from './home/home.component';
 
 export const firebaseConfig = {
@@ -23,6 +25,7 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     BucketListComponent,
+    UniquePipe,
     HomeComponent
   ],
   imports: [
@@ -31,7 +34,8 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

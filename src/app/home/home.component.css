@@ -1,0 +1,41 @@
+.sign-up {
+  padding-top: 100px;
+  min-width: 700px;
+  float: right;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.log-in {
+  padding-top: 100px;
+  min-width: 300px;
+  float: left;
+  margin: auto;
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+}
+
+.google-login {
+  color: #404143;
+}
+
+i.icon-white {
+    color: white;
+}
+
+#sign-up {
+  color: white;
+}
+
+.bucket-logo {
+  width: 15%;
+  padding-bottom: 8px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
