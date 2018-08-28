@@ -14,24 +14,14 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 export class ProfileUserComponent implements OnInit {
   currentUser;
-  currentUserObject;
-  // allUsersFromDatabase;
 
-    constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) {
-      // this.allUsersFromDatabase = this.userService.getUsers();
-      this.currentUser = this.userService.getUserById("0");
-      this.currentUser.subscribe(dataLastEmittedFromObserver => {
-      this.currentUserObject = dataLastEmittedFromObserver;
-});
-     }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) {}
 
-ngOnInit() {
-  //  this.route.params.forEach((urlParameters) => {
-  //   this.currentUserId = urlParameters['id'];
-  // });
-  this.currentUser = this.userService.getUserById("0");
-  this.currentUser.subscribe(dataLastEmittedFromObserver => {
-    this.currentUserObject = dataLastEmittedFromObserver;
-    });
-  }
-};
+  ngOnInit() {
+    //  this.route.params.forEach((urlParameters) => {
+    //   this.currentUserId = urlParameters['id'];
+    // });
+    this.currentUser = this.userService.getUserById("0");
+  };
+
+}
