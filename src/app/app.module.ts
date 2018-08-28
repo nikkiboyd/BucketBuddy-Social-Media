@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { HomeComponent } from './home/home.component';
+import { UniquePipe } from './unique.pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -24,7 +25,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     BucketListComponent,
-    HomeComponent
+    HomeComponent,
+    UniquePipe
   ],
   imports: [
     BrowserModule,
