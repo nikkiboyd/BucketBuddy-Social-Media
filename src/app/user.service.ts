@@ -43,4 +43,12 @@ export class UserService {
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.remove();
   }
+
+  updateBucketItemTitle(bucketItemId:string, newTitle:string){
+    let userId = "0";
+    let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
+    bucketListItem.update({
+      title: newTitle
+    });
+  }
 }

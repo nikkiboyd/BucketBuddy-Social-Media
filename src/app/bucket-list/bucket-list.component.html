@@ -35,38 +35,49 @@
     </div>
     <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
       <div class="col-sm-3">
-          <p id="item-title">{{bucketListItem.title}}</p>
+        <div class="vertical-align">
+          <div class="">
+            <p id="item-title"><a routerLink="/bucketItems/{{bucketListItem.$key}}">{{bucketListItem.title}}</a></p>
+            <img src="/assets/edit-icon.png" alt="edit" class="edit-icon" (click)="enableEditor(bucketListItem.$key)">
+          </div>
+          <div *ngIf="editor == bucketListItem.$key">
+            <input class="form-control margin-top" type="text" name="newTitle" value="{{bucketListItem.title}}" #newTitle>
+            <button class="btn btn-danger margin-top" (click)="editTitle(bucketListItem.$key, newTitle.value)" type="button" name="button">Save Edit</button>
+          </div>
+        </div>
       </div>
       <div class="col-sm-2">
-        <p><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
+        <p class="vertical-align"><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
         <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
       </div>
       <div class="col-sm-2">
-        <p>{{bucketListItem.category}}</p>
+        <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p>{{bucketListItem.dateAdded}}</p>
+        <p class="vertical-align">{{bucketListItem.dateAdded}}</p>
       </div>
       <div class="col-sm-2">
-        <p><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
+        <p class="vertical-align"><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
       </div>
     </div>
     <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row completed">
       <div class="col-sm-3">
-          <p id="item-title">{{bucketListItem.title}}</p>
+        <div class="vertical-align">
+          <p  id="item-title"><a routerLink="/bucketItems/{{bucketListItem.$key}}">{{bucketListItem.title}}</a></p>
+        </div>
       </div>
       <div class="col-sm-2">
-        <p><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
+        <p class="vertical-align"><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
         <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
       </div>
       <div class="col-sm-2">
-        <p>{{bucketListItem.category}}</p>
+        <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p>{{bucketListItem.dateAdded}}</p>
+        <p class="vertical-align">{{bucketListItem.dateAdded}}</p>
       </div>
       <div class="col-sm-2">
-        <p><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
+        <p class="vertical-align"><button type="button" class="btn btn-danger" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
       </div>
     </div>
     </div>

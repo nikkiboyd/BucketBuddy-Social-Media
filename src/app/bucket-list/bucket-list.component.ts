@@ -17,6 +17,7 @@ export class BucketListComponent implements OnInit{
   userFromDatabaseObject;
   allUsersFromDatabase;
   userBucketList;
+  editor;
   allCategories = ["Achievement", "Adventure",
 "Body & Health","Career","Charity","Creative","Cultural","Events","Family & Kids","Financial","Food & Drink","Personal Development","Relationship","Sports","Travel"];
 
@@ -56,5 +57,16 @@ export class BucketListComponent implements OnInit{
 
       deleteBucketItem(bucketItemKey: string){
         this.userService.deleteBucketItem(bucketItemKey);
+      }
+
+      enableEditor(bucketItemKey: string){
+        console.log(bucketItemKey)
+        this.editor = bucketItemKey;
+      }
+      editTitle(bucketItemKey: string, newTitle: string){
+        this.editor = 0;
+        console.log(this.editor);
+        console.log(newTitle);
+        this.userService.updateBucketItemTitle(bucketItemKey, newTitle);
       }
 }
