@@ -4,45 +4,51 @@
     <div id="newBucketItem">
       <h3>Add New Bucket Item</h3>
       <div class="form-group">
-        <label for="">Title:</label>
-        <input class="form-control" type="text" name="" value="">
+        <label for="title">Title:</label>
+        <input class="form-control" type="text" name="title" #title>
       </div>
       <div class="form-group">
         <label for="">Category:</label>
-        <select class="form-control" name="categories">
-          <option *ngFor = "let category of allCategories | unique" value="{{category}}">{{category}}</option>
+        <select class="form-control" name="categories" #category>
+          <option *ngFor = "let category of allCategories | unique" value="{{category}}" >{{category}}</option>
         </select>
       </div>
-      <button type="button" class="btn btn-info" name="button">Submit</button>
+      <button type="button" class="btn btn-info" name="button" (click)="saveNewBucketItem(title.value, category.value)">Submit</button>
     </div>
 
     <div class="row align-center header">
-      <div class="col-sm-5 align-left">
-        <h3>BucketList Item Title</h3>
+      <div class="col-sm-3 align-left">
+        <h4>BucketList Item Title</h4>
       </div>
       <div class="col-sm-2">
-        <h3>Completed</h3>
+        <h4>Completed</h4>
       </div>
       <div class="col-sm-2">
-        <h3>Category</h3>
+        <h4>Category</h4>
       </div>
       <div class="col-sm-3">
-        <h3>Date Added</h3>
-      </div>
-    </div>
-    <div *ngFor = "let bucketListItem of (userFromDatabase | async)?.bucketlist" class="row">
-      <div class="col-sm-5">
-        <p id="item-title">{{bucketListItem.title}}</p>
+        <h4>Date Added</h4>
       </div>
       <div class="col-sm-2">
-        <p><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false)" #complete>
-        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true)" #complete></p>
+        <h4>Delete</h4>
+      </div>
+    </div>
+    <div *ngFor = "let bucketListItem of userBucketList | async" class="row">
+      <div class="col-sm-3">
+          <p id="item-title">{{bucketListItem.title}}</p>
+      </div>
+      <div class="col-sm-2">
+        <p><input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == true" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToFalse(bucketListItem.title, false, bucketListItem.$key)" #complete>
+        <input type="checkbox" name="completed" *ngIf="bucketListItem.completeness == false" [checked] = "bucketListItem.completeness == true" (change)="changeStatusToTrue(bucketListItem.title, true, bucketListItem.$key)" #complete></p>
       </div>
       <div class="col-sm-2">
         <p>{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
         <p>{{bucketListItem.dateAdded}}</p>
+      </div>
+      <div class="col-sm-2">
+        <p><button type="button" class="btn btn-info" name="button" (click)="deleteBucketItem(bucketListItem.$key)">Delete</button></p>
       </div>
     </div>
     </div>
