@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -16,25 +16,33 @@ import { AuthenticationService } from '../authentication.service';
 export class ProfileUpdateComponent implements OnInit {
   currentUser;
   currentUserID;
+  currentUserEmail;
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService, private database: AngularFireDatabase) { }
 
   ngOnInit() {
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
+      this.currentUserEmail = u.email;
       this.currentUser = this.userService.getUserById(u.uid);
     })
   };
 
   updateUserProfile(newName: string, newFirstName: string, newLastName: string, newAge: string, newBio: string, newContact: string){
-    this.currentUser.update({
-      userName: newName,
-      firstName: newFirstName,
-      lastname: newLastName,
-      age: newAge,
-      bio: newBio,
-      contact: newContact
-    });
+    var userEmailpath = this.database.object('users/'+ this.currentUserID);
+    userEmailpath.set(
+      {
+        email: this.currentUserEmail,
+        bio: newBio,
+        age: newAge,
+        bucketlist: [""],
+        comments: [""],
+        userName: newName,
+        friends: [""],
+        firstName: newFirstName,
+        lastName: newLastName,
+        contact: newContact
+      })
     this.router.navigate(['profileuser']);
   }
 

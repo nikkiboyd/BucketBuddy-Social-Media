@@ -1,17 +1,29 @@
 
 <h4>Edit Profile</h4>
 <form>
-  <label>User Name:</label>
-  <input #newUserName placeholder="{{(currentUser | async)?.userName}}"/>
-  <label>First Name:</label>
-  <input #newFirstName placeholder="{{(currentUser | async)?.firstName}}"/>
-  <label>Last Name:</label>
-  <input #newLastName placeholder="{{(currentUser | async)?.lastName}}"/>
-  <label>Age:</label>
-  <input #newAge placeholder="{{(currentUser | async)?.age}}"/>
-  <label>Contact Phone Number:</label>
-  <input #newContact placeholder="{{(currentUser | async)?.contact}}"/>
-  <label>Bio:</label>
-  <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
-  <button (click)="updateUserProfile(newFirstName.value, newLastName.value, newUserName.value, newAge.value, newContact.value, newBio.value)">Update</button>
+  <div>
+    <input #newUserName name="newUserName" placeholder="{{(currentUser | async)?.userName}}"/>
+    <label for="newUserName">User Name</label>
+  </div>
+  <div>
+    <input #newFirstName placeholder="{{(currentUser | async)?.firstName}}"/>
+    <label>First Name</label>
+  </div>
+  <div>
+    <input #newLastName placeholder="{{(currentUser | async)?.lastName}}"/>
+    <label>Last Name</label>
+  </div>
+  <div>
+    <input #newAge placeholder="{{(currentUser | async)?.age}}"/>
+    <label>Age</label>
+  </div>
+  <div>
+    <input #newContact placeholder="{{(currentUser | async)?.contact}}"/>
+    <label>Contact Phone Number</label>
+  </div>
+  <div>
+    <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
+    <label>Bio</label>
+  </div>
+  <button (click)="updateUserProfile(newUserName.value, newFirstName.value, newLastName.value, newAge.value, newContact.value, newBio.value)">Update</button>
 </form>

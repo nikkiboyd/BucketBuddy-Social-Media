@@ -32,14 +32,14 @@ export class HomeComponent implements OnInit {
         let userFromUserTable;
         this.userService.getUserById(user.uid).subscribe(dataLastEmittedFromObserver => {
           userFromUserTable = dataLastEmittedFromObserver;
-          console.log("the userFromUserTable in the subscribe is " + userFromUserTable.email);
-          if(typeof userFromUserTable == undefined){
+
+          if(userFromUserTable.email == null){
             console.log("the user should be sent to the users table. uid and email is " + user.uid + user.email);
-            this.userService.createNewUserInTable(user.uid, user.email);
+            console.log(userFromUserTable.$value);
             this.router.navigate(['profileuser/update']);
             } else {
-              console.log("in the else")
-              // this.router.navigate(['profileuser']);
+              console.log(userFromUserTable.$value);
+              this.router.navigate(['profileuser']);
             }
           })
 
