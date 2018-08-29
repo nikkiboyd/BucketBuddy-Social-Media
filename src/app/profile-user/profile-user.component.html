@@ -5,22 +5,22 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<div class="container">
-  <div class="card">
-    <div class="about-user">
-
-        <div class="img circle" style="background-image:url('https://articlebio.com/uploads/bio/2017/07/20/ryan-gosling.jpg')"></div>
-
-      <h3 class="username">{{(currentUser | async)?.firstName}} {{(currentUser | async)?.lastName}}</h3>
-
-        <h6>Contact {{(currentUser | async)?.firstName}}</h6>
-        <p>phone: {{(currentUser | async)?.contact}}</p>
-        <p>email: {{(currentUser | async)?.email}}</p>
-        <app-buddy-list></app-buddy-list>
-    </div>
-    <p>{{(currentUser | async)?.bio}}</p>
-    <a routerLink="update" class="yellow darken-2 btn-large"><i class="material-icons icon-white right">create</i>EDIT PROFILE</a>
-    <hr/>
+<div class="card main-head">
+  <div class="about-user">
+    <div class="img circle" style="background-image:url('https://articlebio.com/uploads/bio/2017/07/20/ryan-gosling.jpg')"></div>
+    <h3 class="username">{{(currentUser | async)?.firstName}} {{(currentUser | async)?.lastName}}</h3>
+      <p class="bio">{{(currentUser | async)?.bio}}</p>
+      <app-buddy-list></app-buddy-list>
   </div>
-  <app-bucket-list></app-bucket-list>
+  <a routerLink="update" class="yellow darken-2 btn edit-button"><i class="material-icons icon-white right">create</i>EDIT PROFILE</a>
 </div>
+<app-bucket-list></app-bucket-list>
+
+
+<!-- <div class="contact-info">
+  <h6>Contact {{(currentUser | async)?.firstName}}</h6>
+  <ul>
+    <li><i class="material-icons icon-yellow">contact_phone</i>{{(currentUser | async)?.contact}}</li>
+    <li><i class="material-icons icon-yellow">contact_email</i>{{(currentUser | async)?.email}}</li>
+  </ul>
+</div> -->

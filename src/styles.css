@@ -24,3 +24,7 @@ a:hover {
       width: 90%;
   }
 }
+
+body {
+  font-family: 'Lato', sans-serif;
+}

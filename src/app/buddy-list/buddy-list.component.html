@@ -1,7 +1,6 @@
 <div class="buddy-list-box">
   <div class="buddy-section">
-    <p id="buddy-list-header">Buddies<span id="bullet"> ‣ </span><span id="buddy-count">{{(user | async)?.friends.length}}</span></p>
-    <hr>
+    <p id="buddy-list-header">Buddies<span id="bullet"><i class="material-icons icon-black">group</i></span><span id="buddy-count">{{(user | async)?.friends.length}}</span></p>
     <div class="buddy-list-holder">
       <div *ngFor="let buddy of buddyObjects; let i=index" class="buddy-list-outer" (click)="goToProfilePage(buddy)">
         <div *ngIf="i<4">
