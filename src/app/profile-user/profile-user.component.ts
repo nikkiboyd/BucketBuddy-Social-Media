@@ -23,10 +23,7 @@ export class ProfileUserComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
-      this.currentUser = this.userService.getUserById(u.uid);
       this.currentUser = this.userService.getUserById(this.currentUserID);
-      console.log("the current user id is " + u.uid);
-      console.log("found user email is " + this.currentUser.email)
     })
   };
 
