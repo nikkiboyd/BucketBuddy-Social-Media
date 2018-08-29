@@ -15,6 +15,7 @@ import { UniquePipe } from './unique.pipe';
 import { CompletedPipe } from './completed.pipe';
 import { NotCompletedPipe } from './notcompleted.pipe';
 import { HomeComponent } from './home/home.component';
+import { BuddyListComponent } from './buddy-list/buddy-list.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 
@@ -29,6 +30,7 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     BucketListComponent,
+    BuddyListComponent,
     UniquePipe,
     CompletedPipe,
     NotCompletedPipe,

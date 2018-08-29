@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
 import { User } from '../models/user.model';
 import { BucketList } from '../models/bucketlist.model';
 import { AuthenticationService } from '../authentication.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 
 export class HomeComponent implements OnInit {
-  user;
+  private user;
   private isLoggedIn: Boolean;
   private userName: String;
 
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, options);
+    });
   }
 
   createUser(username: string, password: string, firstName: string, lastName: string, phone: number, email: string, dob: Date, bio: string, bucketList: BucketList[], comments: string[], friends: string[]) {

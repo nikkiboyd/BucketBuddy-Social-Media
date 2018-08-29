@@ -10,7 +10,7 @@ export class UserService {
   bucketList: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-  this.users = database.list('users')
+  this.users = database.list('users');
   }
 
   addUser(newUser: User) {
