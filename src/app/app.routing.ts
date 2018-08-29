@@ -32,7 +32,8 @@ const appRoutes: Routes = [
     {
       path:'buddy/:id',
       component: BuddyDetailComponent
-    }
+    },
+    {
        path: 'items/:id',
        component: MutualBucketItemsComponent
      }

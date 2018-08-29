@@ -11,6 +11,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
   styleUrls: ['./buddy-detail.component.css'],
   providers: [UserService]
 })
+
 export class BuddyDetailComponent implements OnInit {
   currentBuddy;
   currentBuddyId;
@@ -21,8 +22,6 @@ export class BuddyDetailComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
     this.currentBuddyId = urlParameters['id'];
     this.currentBuddy = this.userService.getUserById(this.currentBuddyId);
+  });
   }
-
-
-
 }
