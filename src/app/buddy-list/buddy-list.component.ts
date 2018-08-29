@@ -13,10 +13,10 @@ import { UserService } from '../user.service';
   providers: [ UserService ]
 })
 export class BuddyListComponent implements OnInit {
-  private user;
-  private userId;
-  private loggedInUser;
-  private loggedIn: Boolean = true;
+  private user; //page being viewed
+  private userId; // id of user whose page is being used
+  private loggedInUser; // current logged in user
+  private homeProfile: Boolean = false; // whether we are on the currently logged in user's page or not; true if we are
   private alreadyBuddied: Boolean = false;
   private buddyList;
   private buddyObjects;
@@ -81,9 +81,9 @@ export class BuddyListComponent implements OnInit {
       this.alreadyBuddied = false;
   }
 
-  // goToProfilePage(clickedBuddy: User) {
-  //   this.router.navigate(['profileuser', clickedBuddy.id])
-  // }
+  goToProfilePage(id) {
+    this.router.navigate(['buddy', id]);
+  }
 
   }
 

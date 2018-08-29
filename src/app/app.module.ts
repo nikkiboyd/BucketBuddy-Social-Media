@@ -14,11 +14,11 @@ import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { UniquePipe } from './unique.pipe';
 import { CompletedPipe } from './completed.pipe';
 import { NotCompletedPipe } from './notcompleted.pipe';
-import { LimitToPipe } from './limitTo.pipe';
 import { HomeComponent } from './home/home.component';
 import { BuddyListComponent } from './buddy-list/buddy-list.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { BuddyDetailComponent } from './buddy-detail/buddy-detail.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -38,7 +38,7 @@ export const firebaseConfig = {
     HomeComponent,
     ProfileUpdateComponent,
     ProfileUserComponent,
-    LimitToPipe
+    BuddyDetailComponent
   ],
   imports: [
     BrowserModule,
