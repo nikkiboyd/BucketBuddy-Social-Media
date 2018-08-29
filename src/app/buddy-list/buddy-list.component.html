@@ -1,4 +1,5 @@
 
+
   <div *ngIf="!homeProfile">
     <div *ngIf="alreadyBuddied">
       <button class="add-buddy-button" (click)="deleteBuddy()">drop me as a buddy!</button>
@@ -9,13 +10,15 @@
   </div>
 
 <div class="buddy-list-box">
-  <p id="buddy-list-header">buddies <span id="buddy-count">( {{(user | async)?.friends.length}} )</span></p>
-  <div class="buddy-list-holder">
+  <div class="buddy-section">
+  <p id="buddy-list-header">Buddies<span id="bullet"></span><span id="buddy-count">{{(user | async)?.friends.length}}</span></p>
+    <div class="buddy-list-holder"><i class="material-icons icon-black">group</i>
     <div *ngFor="let buddy of buddyObjects | slice:0:6" class="buddy-list-outer" (click)="goToProfilePage(buddy.$key)">
         <img src=".././assets/bucketbuddy.png">
         <div class="buddy-list-info">
-          {{buddy.firstName}} {{buddy.$key}}
+          {{buddy.firstName}} {{buddy.lastName}}
         </div>
-      </div>
+     </div>
+   </div>
     </div>
   </div>
