@@ -13,7 +13,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class MutualBucketItemsComponent implements OnInit {
   itemTitle;
   allUsers;
-  mutualBucketItems;
+  bucketItemMatches;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
 
@@ -23,27 +23,24 @@ export class MutualBucketItemsComponent implements OnInit {
     });
     this.userService.getUsers().subscribe(dataLastEmittedFromObserver => {
       this.allUsers = dataLastEmittedFromObserver;
+      this.getMutualItems();
     });
   }
 
   getMutualItems(){
 
-  let usersThatMatchQueryArray = [];
+  let usersThatMatchQuery = [];
   let test = "Get 100 Catssfadfs";
-      this.allUsers.forEach(function(user){
-        let usersThatMatchQuery;
+      this.allUsers.forEach(user => {
         for (let item in user.bucketlist){
-
           if(user.bucketlist[item].title == test){
-            usersThatMatchQuery = user.name;
+            usersThatMatchQuery.push(user);
           } else{
           }
         }
-        usersThatMatchQueryArray.push(usersThatMatchQuery);
-
       });
-      this.mutualBucketItems = usersThatMatchQueryArray;
-    console.log(this.mutualBucketItems)
+      this.bucketItemMatches = usersThatMatchQuery;
+      console.log(this.bucketItemMatches)
     }
 
 }

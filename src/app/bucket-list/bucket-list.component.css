@@ -9,9 +9,6 @@
   background: #e8e8e8;
 }
 
-.top{
-  margin-bottom: 3rem;
-}
 .top .completed:last-of-type,
 .top .notCompleted:last-of-type {
     border-bottom-width: 1px;

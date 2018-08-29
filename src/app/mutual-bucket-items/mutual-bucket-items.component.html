@@ -1,6 +1,15 @@
-<h1 (click)="getMutualItems()">
-  mutual-bucket-items works!
-  {{articleId}}
-</h1>
-
-<p *ngFor="let person of mutualBucketItems">{{person}}</p>
+<div class="container" id="matches">
+  <h2>All users with <span class="itemTitle">{{itemTitle}}</span> as a Bucket List Item</h2>
+  <p>Here are some users you should match with to accomplish your goal of <span class="itemTitle">{{itemTitle}}</span></p>
+  <div class="row" *ngFor="let user of bucketItemMatches">
+    <div class="col-md-4">
+      <p>{{user.firstName}} {{user.lastName}}</p>
+    </div>
+    <div class="col-md-4">
+      <p>{{user.contact}}</p>
+    </div>
+    <div class="col-md-4">
+      <button type="button" name="button">Message {{user.$key}}</button>
+    </div>
+  </div>
+</div>
