@@ -3,8 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
-import { FirebaseListObservable } from 'angularfire2/database';
-import { BucketTest } from '..models/BucketTest.model'
+// import { FirebaseListObservable } from 'angularfire2/database';
 var firebase = require('firebase');
 var firebaseui = require('firebaseui');
 
@@ -23,6 +22,10 @@ export class ProfileUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.userService.getUserById("0");
+
+    // var userFromDb = firebase.auth().currentUser;
+    // var userId = userFromDb.uid
+    // console.log(userFromDb.uid)
   }
 
   updateUserProfile(newName: string, newAge: string, newBio: string){
@@ -31,11 +34,10 @@ export class ProfileUpdateComponent implements OnInit {
       age: newAge,
       bio: newBio
     });
-      var userFromDb = firebase.auth().currentUser;
-      var userId = userFromDb.uid
-      console.log(userFromDb.uid)
-      let newBucketTest: BucketTest = ("this is a test of our adding bucket method")
-      this.userService.addNewTestItem(newBucketTest, userId)
+      // var userFromDb = firebase.auth().currentUser;
+      // var userId = userFromDb.uid
+      // console.log(userFromDb.uid)
+
 
   }
 

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { User } from './models/user.model';
 import { BucketList } from './models/bucketlist.model';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+var firebase = require('firebase');
+var firebaseui = require('firebaseui');
 
 
 @Injectable()
@@ -16,9 +18,17 @@ export class UserService {
   addUser(newUser: User) {
     this.users.push(newUser);
   }
+  getCurrentUser(){
+    return firebase.auth().currentUser;
+  }
 
   getUsers(){
     return this.users;
+  }
+
+  createNewUserInTable(userId: string, userEmail: string){
+    var userEmailpath = this.database.object('users/'+userId+'/email/');
+    userEmailpath.set(userEmail);
   }
 
   getUserById(userId: string) {

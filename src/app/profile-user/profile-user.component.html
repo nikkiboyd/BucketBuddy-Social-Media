@@ -1,7 +1,8 @@
 <div>
   <img src="" style="width:100%;">
-  <h3>{{(currentUser | async)?.name}} - {{(currentUser | async)?.age}}  </h3>
-  <p>{{(currentUser | async)?.bio}}</p>
+  <!-- <h3>{{(user | async)?.name}} - {{(user | async)?.age}}  </h3>
+  <p>{{(user | async)?.bio}}</p> -->
+  <p>{{(user | async)?.email}}</p>
   <button routerLink="update">Edit Profile</button>
   <hr/>
 </div>

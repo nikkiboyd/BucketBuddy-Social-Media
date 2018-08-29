@@ -16,6 +16,7 @@ import { AuthenticationService } from './authentication.service';
 
 export class AppComponent implements OnInit {
   user;
+  userId;
   private isLoggedIn: Boolean;
   private userName: String;
 
@@ -23,11 +24,12 @@ export class AppComponent implements OnInit {
     this.authService.user.subscribe(user => {
       if (user == null) {
         this.isLoggedIn = false;
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       } else {
         this.isLoggedIn = true;
         this.userName = user.displayName;
-        this.router.navigate([]);
+        this.userId = user.uid;
+        // this.router.navigate([]);
       }
     });
   }
@@ -46,5 +48,10 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    this.router.navigate(['/']);
+  }
+
+  getUserId(){
+    return this.userId;
   }
 }
