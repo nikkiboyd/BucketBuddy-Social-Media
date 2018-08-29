@@ -36,7 +36,7 @@
       <div class="col-sm-3">
         <div class="vertical-align">
           <div class="">
-            <p id="item-title"><a routerLink="/bucketItems/{{bucketListItem.$key}}">{{bucketListItem.title}}</a></p>
+            <p id="item-title"><a routerLink="/items/{{bucketListItem.title}}">{{bucketListItem.title}}</a></p>
             <img src="/assets/edit-icon.png" alt="edit" class="edit-icon" (click)="enableEditor(bucketListItem.$key)">
           </div>
           <div *ngIf="editor == bucketListItem.$key">
