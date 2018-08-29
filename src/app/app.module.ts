@@ -14,6 +14,7 @@ import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { UniquePipe } from './unique.pipe';
 import { CompletedPipe } from './completed.pipe';
 import { NotCompletedPipe } from './notcompleted.pipe';
+import { LimitToPipe } from './limitTo.pipe';
 import { HomeComponent } from './home/home.component';
 import { BuddyListComponent } from './buddy-list/buddy-list.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     NotCompletedPipe,
     HomeComponent,
     ProfileUpdateComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
