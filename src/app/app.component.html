@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-default deep-orange darken-1">
+  <div class="container-fluid">
+    <div class="center">
+      <a class="name navbar-brand" routerLink="/">Bucket <img class="bucket-logo" src="/assets/bucketbuddy.png" /> Buddy</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="isLoggedIn">
+        <a (click)="logout()">Log out</a>
+      </li>
+      <li *ngIf ="!isLoggedIn">
+        <a (click)="login()">Log in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
