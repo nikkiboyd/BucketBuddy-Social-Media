@@ -1,0 +1,59 @@
+.add-buddy-button {
+    width: 270px;
+    font-family: 'Londrina Outline', cursive;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: maroon;
+    color:white;
+}
+
+.add-buddy-button:hover {
+  background-color: white;
+  color: maroon;
+}
+
+.buddy-list-box {
+  background-color:#C4B0B0;
+  color: white;
+  width:260px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#buddy-list-header {
+  font-size: 32px;
+  font-family: 'Londrina Outline', cursive;
+}
+
+#buddy-count {
+  font-size: 10px;
+  color: maroon;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.buddy-list-outer {
+  width:80px;
+  height: 80px;
+  border: dotted 1px grey;
+  position: relative;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 2px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+.buddy-list-info {
+  font-family: sans-serif;
+  font-size: 11px;
+  color: white;
+  text-shadow: 0 0 2px black;
+  position: absolute;
+  top: auto;
+  left: 2px;
+  bottom: 5px;
+}

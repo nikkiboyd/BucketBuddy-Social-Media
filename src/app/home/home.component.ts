@@ -8,6 +8,7 @@ import { BucketList } from '../models/bucketlist.model';
 import { AuthenticationService } from '../authentication.service';
 var firebase = require('firebase');
 var firebaseui = require('firebaseui');
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ var firebaseui = require('firebaseui');
 })
 
 export class HomeComponent implements OnInit {
-  user;
+  private user;
   private isLoggedIn: Boolean;
   private userName: String;
 
@@ -44,6 +45,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, options);
+    });
   }
 
   createUser(username: string, password: string, firstName: string, lastName: string, phone: number, email: string, dob: Date, bio: string, bucketList: BucketList[], comments: string[], friends: string[]) {

@@ -12,7 +12,7 @@ export class UserService {
   bucketList: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
-  this.users = database.list('users')
+  this.users = database.list('users');
   }
 
   addUser(newUser: User) {
@@ -53,4 +53,5 @@ export class UserService {
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.remove();
   }
+
 }
