@@ -22,7 +22,7 @@ export class ProfileUpdateComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
-      this.currentUser = this.userService.getUserById(this.currentUserID);
+      this.currentUser = this.userService.getUserById(u.uid);
     })
   };
 
@@ -35,6 +35,7 @@ export class ProfileUpdateComponent implements OnInit {
       bio: newBio,
       contact: newContact
     });
+    this.router.navigate(['profileuser']);
   }
 
 }
