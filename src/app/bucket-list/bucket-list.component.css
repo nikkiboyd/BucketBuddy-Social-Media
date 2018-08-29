@@ -1,16 +1,26 @@
-.row {
+.completed,
+.notCompleted {
     border: 1px solid black;
     padding: 10px;
-    border-bottom: 0px;
+    border-bottom-width: 0px;
+}
+.completed{
+  background: #e8e8e8;
 }
 
-.row:last-of-type {
-    border-bottom: 1px solid black;
+.completed:last-of-type,
+.notCompleted:last-of-type {
+    border-bottom-width: 1px;
 }
+input[type=checkbox] {
+  transform: scale(2) !important;
+  }
 
 .row p {
   margin-bottom: 0px;
-display: -webkit-box;
+}
+.vertical-align {
+/* display: -webkit-box;
 display: -ms-flexbox;
 display: flex;
 height: 100%;
@@ -19,7 +29,8 @@ height: 100%;
 align-items: center;
 -webkit-box-pack: center;
 -ms-flex-pack: center;
-justify-content: center;
+justify-content: center; */
+text-align: center;
 }
 
 .row label {
@@ -28,9 +39,12 @@ justify-content: center;
 }
 
 #item-title {
-justify-content: left;
+  float: left;
 }
 
+.margin-top{
+  margin-top:10px;
+}
 
 .row .col-sm-5,
 .row .col-sm-2,
@@ -52,14 +66,50 @@ justify-content: left;
 
 .header{
     margin-top: 2rem;
-    background: #025aa5;
+    background: #ff3d00;
     color: white;
+    border: 1px solid black;
+    padding: 10px;
+    border-bottom-width: 0px;
 }
 
 .header h4{
   margin-bottom:0px;
 }
 
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-    opacity: 1;
+.edit-icon{
+  width: 21px;
+  margin-left: 10px;
+  float: right;
+}
+
+.check{
+  text-align: center;
+}
+
+.pretty {
+    font-size: 40px;
+    margin-right: 0px;
+}
+
+.pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
+    color: black;
+    stroke: black;
+}
+
+.pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
+    border-color: #ff3d00;
+}
+
+.bucketBox a{
+  color:#ff3d00;
+  font-weight: 700;
+}
+
+.bucketBox a:hover{
+  color:black;
+}
+
+.fa-heart:before {
+    font-size: 29px;
 }
