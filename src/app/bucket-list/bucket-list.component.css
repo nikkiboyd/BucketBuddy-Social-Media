@@ -1,6 +1,6 @@
 .top .completed,
 .top .notCompleted {
-    border: 1px solid black;
+    border: 1px solid #ffccbc;
     padding: 10px;
     border-bottom-width: 0px;
     margin-bottom: 0px;
@@ -50,7 +50,7 @@ text-align: center;
 .top .row .col-sm-5,
 .top .row .col-sm-2,
 .top .row .col-sm-3 {
-    border-right: 1px dashed black;
+    border-right: 1px dashed #ffccbc;
 }
 
 .top .row .col-sm-2:last-of-type {
@@ -67,9 +67,9 @@ text-align: center;
 
 .top .header{
     margin-top: 2rem;
-    background: #ff3d00;
+    background: #f4511e;
     color: white;
-    border: 1px solid black;
+    border: 1px solid #ffccbc;
     padding: 10px;
     border-bottom-width: 0px;
     margin-bottom: 0px;
@@ -108,12 +108,17 @@ text-align: center;
   font-weight: 700;
 }
 
+.bucketbox {
+  border-radius: 5px;
+}
+
 .top .bucketBox a:hover{
   color:black;
 }
 
 .top .fa-heart:before {
     font-size: 29px;
+    color: red;
 }
 
 .top label {
@@ -122,4 +127,16 @@ text-align: center;
 
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
     pointer-events: inherit;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.icon-yellow {
+  color: #f9a825;
+}
+
+a:hover{
+ cursor: pointer;
 }
