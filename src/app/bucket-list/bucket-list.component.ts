@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { UserService } from '../user.service';
 import { BucketList } from '../models/bucketlist.model';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { AuthenticationService } from '../authentication.service';
+
 
 @Component({
   selector: 'app-bucket-list',
@@ -18,15 +20,23 @@ export class BucketListComponent implements OnInit{
   allUsersFromDatabase;
   userBucketList;
   editor;
+  currentUserID
+  currentUser;
   allCategories = ["Achievement", "Adventure",
 "Body & Health","Career","Charity","Creative","Cultural","Events","Family & Kids","Financial","Food & Drink","Personal Development","Relationship","Sports","Travel"];
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService) { }
   ngOnInit() {
+    this.authService.user.subscribe(u => {
+      this.currentUserID = u.uid;
+      this.currentUser = this.userService.getUserById(this.currentUserID);
+      this.userBucketList = this.userService.getUserBucketList(this.currentUserID
+      );
+    })
     this.allUsersFromDatabase = this.userService.getUsers();
-    this.userBucketList = this.userService.getUserBucketList("-LL07Xxdv1UpH28R383U"
+    this.userBucketList = this.userService.getUserBucketList(this.currentUserID
 );
-    this.userFromDatabase = this.userService.getUserById("-LL07Xxdv1UpH28R383U"
+    this.userFromDatabase = this.userService.getUserById(this.currentUserID
 );
     this.userBucketList.subscribe(dataLastEmittedFromObserver => {
       this.userFromDatabaseObject = dataLastEmittedFromObserver;
@@ -35,7 +45,7 @@ export class BucketListComponent implements OnInit{
 
   changeStatusToTrue(taskTitle:string, completeness: string, keyId:string){
     let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-    let bucketListTrue = this.userService.getUserBucketListItemById("-LL07Xxdv1UpH28R383U"
+    let bucketListTrue = this.userService.getUserBucketListItemById(this.currentUserID
 , keyId);
     let currentDate = new Date().toString();
 
@@ -47,7 +57,7 @@ export class BucketListComponent implements OnInit{
 
     changeStatusToFalse(taskTitle:string, completeness: string, keyId:string){
       let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-      let bucketListFalse = this.userService.getUserBucketListItemById("-LL07Xxdv1UpH28R383U"
+      let bucketListFalse = this.userService.getUserBucketListItemById(this.currentUserID
 , keyId);
 
       bucketListFalse.update({
@@ -59,7 +69,7 @@ export class BucketListComponent implements OnInit{
       saveNewBucketItem(title:string, category: string){
         let currentDate = new Date().toString();
         let newBucketItem = new BucketList(category, false, currentDate, "N/A", title);
-        this.userService.addNewBucketItem(newBucketItem, "-LL07Xxdv1UpH28R383U"
+        this.userService.addNewBucketItem(newBucketItem, this.currentUserID
 );
       }
 
