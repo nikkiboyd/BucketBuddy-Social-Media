@@ -16,11 +16,11 @@
         <h6>Contact {{(currentUser | async)?.firstName}}</h6>
         <p>phone: {{(currentUser | async)?.contact}}</p>
         <p>email: {{(currentUser | async)?.email}}</p>
+        <app-buddy-list></app-buddy-list>
     </div>
     <p>{{(currentUser | async)?.bio}}</p>
     <a routerLink="update" class="yellow darken-2 btn-large"><i class="material-icons icon-white right">create</i>EDIT PROFILE</a>
     <hr/>
   </div>
-  <app-buddy-list></app-buddy-list>
   <app-bucket-list></app-bucket-list>
 </div>
