@@ -28,7 +28,16 @@ export class HomeComponent implements OnInit {
       } else {
         this.isLoggedIn = true;
         this.userName = user.displayName;
-        this.router.navigate([]);
+        console.log(user.uid);
+        let userFromTable = this.userService.getUserById(user.uid);
+        //this if isn't working yet, it routes every new login to createNewUserInTable, need to determine if user exisits yet.
+        if(typeof(userFromTable.email) == 'undefined'){
+        console.log("the user should be sent to the users table. uid and email is " user.uid + user.email);
+        this.userService.createNewUserInTable(user.uid, user.email);
+        this.router.navigate(['profileuser/update']);
+        } else {
+          this.router.navigate(['profileuser']);
+        }
       }
     });
   }
