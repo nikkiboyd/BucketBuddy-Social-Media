@@ -74,7 +74,9 @@ export class BucketListComponent implements OnInit{
       }
 
       deleteBucketItem(bucketItemKey: string){
-        this.userService.deleteBucketItem(bucketItemKey);
+        console.log("delete button is clicked")
+        console.log("the bucket item key is " + bucketItemKey)
+        this.userService.deleteBucketItem(bucketItemKey, this.currentUserID);
       }
 
       enableEditor(bucketItemKey: string){
@@ -82,6 +84,6 @@ export class BucketListComponent implements OnInit{
       }
       editTitle(bucketItemKey: string, newTitle: string){
         this.editor = 0;
-        this.userService.updateBucketItemTitle(bucketItemKey, newTitle);
+        this.userService.updateBucketItemTitle(bucketItemKey, newTitle, this.currentUserID);
       }
 }
