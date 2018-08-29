@@ -6,6 +6,8 @@ import { UserService } from '../user.service';
 import { User } from '../models/user.model';
 import { BucketList } from '../models/bucketlist.model';
 import { AuthenticationService } from '../authentication.service';
+var firebase = require('firebase');
+var firebaseui = require('firebaseui');
 import * as $ from 'jquery';
 
 @Component({
@@ -28,7 +30,16 @@ export class HomeComponent implements OnInit {
       } else {
         this.isLoggedIn = true;
         this.userName = user.displayName;
-        this.router.navigate([]);
+        let userFromTable = this.userService.getUserById("0");
+        console.log("the current user id is " + user.email)
+        console.log(userFromTable.email)
+        // this if isn't working, it should pull the email from the users table based on the uid from the userAuth table
+        if(typeof(userFromTable.email) == 'undefined'){
+          userService.createNewUserInTable(user.uid, user.email);
+          this.router.navigate(['profileuser/update']);
+        } else {
+          this.router.navigate(['profileuser']);
+        }
       }
     });
   }
@@ -47,6 +58,8 @@ export class HomeComponent implements OnInit {
 
   login() {
     this.authService.login();
+    //if to route new users to profile update page
+    //route exisiting users to profile page
   }
 
   logout() {
