@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-profile-update',
@@ -14,18 +15,26 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 export class ProfileUpdateComponent implements OnInit {
   currentUser;
+  currentUserID;
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.currentUser = this.userService.getUserById("0");
-  }
+    this.authService.user.subscribe(u => {
+      this.currentUserID = u.uid;
+      this.currentUser = this.userService.getUserById(this.currentUserID);
+    })
+  };
 
-  updateUserProfile(newName: string, newAge: string, newBio: string){
+  updateUserProfile(newName: string, newFirstName: string, newLastName: string, newAge: string, newBio: string, newContact: string){
     this.currentUser.update({
-      name: newName,
+      userName: newName,
+      firstName: newFirstName,
+      lastname: newLastName,
+      age: newAge,
+      bio: newBio,
+      contact: newContact
     });
-    console.log(newName)
   }
 
 }
