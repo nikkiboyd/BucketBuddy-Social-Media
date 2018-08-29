@@ -5,10 +5,13 @@ import { Location } from '@angular/common';
 import { UserService } from '../user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 
+
 @Component({
   selector: 'app-mutual-bucket-items',
   templateUrl: './mutual-bucket-items.component.html',
-  styleUrls: ['./mutual-bucket-items.component.css']
+  styleUrls: ['./mutual-bucket-items.component.css'],
+  providers:[UserService]
+
 })
 export class MutualBucketItemsComponent implements OnInit {
   itemTitle;
