@@ -5,6 +5,7 @@ import { BuddyListComponent } from './buddy-list/buddy-list.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component'
 import { HomeComponent } from './home/home.component';
+import { BuddyDetailComponent } from './buddy-detail/buddy-detail.component';
 import { MutualBucketItemsComponent } from './mutual-bucket-items/mutual-bucket-items.component';
 
 const appRoutes: Routes = [
@@ -29,6 +30,9 @@ const appRoutes: Routes = [
       component: ProfileUpdateComponent
     },
     {
+      path:'buddy/:id',
+      component: BuddyDetailComponent
+    }
        path: 'items/:id',
        component: MutualBucketItemsComponent
      }
