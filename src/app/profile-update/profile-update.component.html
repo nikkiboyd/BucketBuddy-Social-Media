@@ -1,11 +1,29 @@
 
 <h4>Edit Profile</h4>
 <form>
-  <label>Name:</label>
-  <input #newName placeholder="{{(currentUser | async)?.name}}"/>
-  <label>Age:</label>
-  <input placeholder="{{(currentUser | async)?.age}}"/>
-  <label>Bio:</label>
-  <textarea  rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
-  <button (click)="updateUserProfile(newName.value)">Update</button>
+  <div>
+    <input #newUserName name="newUserName" value="{{(currentUser | async)?.userName}}"/>
+    <label for="newUserName">User Name</label>
+  </div>
+  <div>
+    <input #newFirstName value="{{(currentUser | async)?.firstName}}"/>
+    <label>First Name</label>
+  </div>
+  <div>
+    <input #newLastName value="{{(currentUser | async)?.lastName}}"/>
+    <label>Last Name</label>
+  </div>
+  <div>
+    <input #newAge value="{{(currentUser | async)?.age}}"/>
+    <label>Age</label>
+  </div>
+  <div>
+    <input #newContact value="{{(currentUser | async)?.contact}}"/>
+    <label>Contact Phone Number</label>
+  </div>
+  <div>
+    <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
+    <label>Bio</label>
+  </div>
+  <button (click)="updateUserProfile(newUserName.value, newFirstName.value, newLastName.value, newAge.value, newBio.value, newContact.value)">Update</button>
 </form>

@@ -24,8 +24,10 @@ export class BucketListComponent implements OnInit{
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
   ngOnInit() {
     this.allUsersFromDatabase = this.userService.getUsers();
-    this.userBucketList = this.userService.getUserBucketList("0");
-    this.userFromDatabase = this.userService.getUserById("0");
+    this.userBucketList = this.userService.getUserBucketList("-LL07Xxdv1UpH28R383U"
+);
+    this.userFromDatabase = this.userService.getUserById("-LL07Xxdv1UpH28R383U"
+);
     this.userBucketList.subscribe(dataLastEmittedFromObserver => {
       this.userFromDatabaseObject = dataLastEmittedFromObserver;
     });
@@ -33,7 +35,8 @@ export class BucketListComponent implements OnInit{
 
   changeStatusToTrue(taskTitle:string, completeness: string, keyId:string){
     let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-    let bucketListTrue = this.userService.getUserBucketListItemById("0", keyId);
+    let bucketListTrue = this.userService.getUserBucketListItemById("-LL07Xxdv1UpH28R383U"
+, keyId);
     let currentDate = new Date().toString();
 
       bucketListTrue.update({
@@ -44,7 +47,8 @@ export class BucketListComponent implements OnInit{
 
     changeStatusToFalse(taskTitle:string, completeness: string, keyId:string){
       let index = this.userFromDatabaseObject.findIndex(i => i.title === taskTitle);
-      let bucketListFalse = this.userService.getUserBucketListItemById("0", keyId);
+      let bucketListFalse = this.userService.getUserBucketListItemById("-LL07Xxdv1UpH28R383U"
+, keyId);
 
       bucketListFalse.update({
         completeness: false,
@@ -55,7 +59,8 @@ export class BucketListComponent implements OnInit{
       saveNewBucketItem(title:string, category: string){
         let currentDate = new Date().toString();
         let newBucketItem = new BucketList(category, false, currentDate, "N/A", title);
-        this.userService.addNewBucketItem(newBucketItem, "0");
+        this.userService.addNewBucketItem(newBucketItem, "-LL07Xxdv1UpH28R383U"
+);
       }
 
       deleteBucketItem(bucketItemKey: string){

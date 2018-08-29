@@ -21,6 +21,25 @@ export class UserService {
     return this.users;
   }
 
+  createNewUserInTable(userId: string, userEmail: string){
+    console.log("in the create new user method")
+    var userEmailpath = this.database.object('users/'+userId);
+    userEmailpath.set(
+      {
+        email: userEmail,
+        bio: "",
+        age: "",
+        bucketlist: [""],
+        comments: [""],
+        userName: "",
+        friends: [""],
+        firstName: "newFirstName",
+        lastname: "newLastName",
+        contact: ""
+      }
+    );
+  }
+
   getUserById(userId: string) {
     return this.database.object('users/' + userId);
   }

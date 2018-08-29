@@ -28,8 +28,22 @@ export class HomeComponent implements OnInit {
       } else {
         this.isLoggedIn = true;
         this.userName = user.displayName;
-        this.router.navigate([]);
-      }
+        console.log("the user id is " + user.uid);
+        let userFromUserTable;
+        this.userService.getUserById(user.uid).subscribe(dataLastEmittedFromObserver => {
+          userFromUserTable = dataLastEmittedFromObserver;
+
+          if(userFromUserTable.email == null){
+            console.log("the user should be sent to the users table. uid and email is " + user.uid + user.email);
+            console.log(userFromUserTable.$value);
+            this.router.navigate(['profileuser/update']);
+            } else {
+              console.log(userFromUserTable.$value);
+              this.router.navigate(['profileuser']);
+            }
+          })
+
+        }
     });
   }
 
