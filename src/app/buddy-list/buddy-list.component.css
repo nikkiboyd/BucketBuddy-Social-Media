@@ -1,10 +1,6 @@
 .add-buddy-button {
-    width: 270px;
-    font-family: 'Londrina Outline', cursive;
+    min-width: 250px;
     font-size: 20px;
-    border-radius: 5px;
-    background-color: maroon;
-    color:white;
 }
 
 .add-buddy-button:hover {
@@ -13,29 +9,38 @@
 }
 
 .buddy-list-box {
-  background-color:#C4B0B0;
   color: white;
-  width:260px;
+  width: 250px;
   padding: 5px;
   border-radius: 5px;
+  float: right;
 }
 
 #buddy-list-header {
-  font-size: 32px;
-  font-family: 'Londrina Outline', cursive;
+  font-size: 25px;
+  font-family: 'Lobster', cursive;
+  max-width: 250px;
+  color: #f4511e;
 }
 
 #buddy-count {
-  font-size: 10px;
-  color: maroon;
+  font-size: 15px;
+  color: #f4511e;
   font-family: sans-serif;
   font-weight: bold;
+  color: #fbc02d;
+  padding-left: 20px;
+}
+
+#bullet {
+  color: lightgrey;
+  font-size: 13px;
+  padding-left: 20px;
 }
 
 .buddy-list-outer {
   width:80px;
   height: 80px;
-  border: dotted 1px grey;
   position: relative;
   border-radius: 5px;
   display: inline-block;
@@ -56,4 +61,18 @@ img {
   top: auto;
   left: 2px;
   bottom: 5px;
+}
+
+.buddy-section {
+  margin-top: -150px;
+}
+
+.add {
+  margin-top: -600px;
+  margin-left: -820px;
+}
+
+.remove {
+  margin-top: -600px;
+  margin-left: -820px;
 }
