@@ -34,10 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.datepicker');
-      var instances = M.Datepicker.init(elems, options);
-    });
+
   }
 
   createUser(username: string, password: string, firstName: string, lastName: string, phone: number, email: string, dob: Date, bio: string, bucketList: BucketList[], comments: string[], friends: string[]) {

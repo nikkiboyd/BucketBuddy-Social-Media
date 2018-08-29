@@ -1,25 +1,26 @@
-.completed,
-.notCompleted {
+.top .completed,
+.top .notCompleted {
     border: 1px solid black;
     padding: 10px;
     border-bottom-width: 0px;
+    margin-bottom: 0px;
 }
-.completed{
+.top .completed{
   background: #e8e8e8;
 }
 
-.completed:last-of-type,
-.notCompleted:last-of-type {
+.top .completed:last-of-type,
+.top .notCompleted:last-of-type {
     border-bottom-width: 1px;
 }
-input[type=checkbox] {
+.top input[type=checkbox] {
   transform: scale(2) !important;
   }
 
-.row p {
+.top .row p {
   margin-bottom: 0px;
 }
-.vertical-align {
+.top .vertical-align {
 /* display: -webkit-box;
 display: -ms-flexbox;
 display: flex;
@@ -33,83 +34,92 @@ justify-content: center; */
 text-align: center;
 }
 
-.row label {
+.top .row label {
   margin-bottom: 0px;
   margin-right: 10px;
 }
 
-#item-title {
+.top #item-title {
   float: left;
 }
 
-.margin-top{
+.top .margin-top{
   margin-top:10px;
 }
 
-.row .col-sm-5,
-.row .col-sm-2,
-.row .col-sm-3 {
+.top .row .col-sm-5,
+.top .row .col-sm-2,
+.top .row .col-sm-3 {
     border-right: 1px dashed black;
 }
 
-.row .col-sm-2:last-of-type {
+.top .row .col-sm-2:last-of-type {
     border-right: 0px;
 }
 
-.align-center {
+.top .align-center {
   text-align: center;
 }
 
-.align-left {
+.top .align-left {
   text-align: left;
 }
 
-.header{
+.top .header{
     margin-top: 2rem;
     background: #ff3d00;
     color: white;
     border: 1px solid black;
     padding: 10px;
     border-bottom-width: 0px;
+    margin-bottom: 0px;
 }
 
-.header h4{
+.top .header h4{
   margin-bottom:0px;
 }
 
-.edit-icon{
+.top .edit-icon{
   width: 21px;
   margin-left: 10px;
   float: right;
 }
 
-.check{
+.top .check{
   text-align: center;
 }
 
-.pretty {
+.top .pretty {
     font-size: 40px;
     margin-right: 0px;
 }
 
-.pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
+.top .pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
     color: black;
     stroke: black;
 }
 
-.pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
+.top .pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
     border-color: #ff3d00;
 }
 
-.bucketBox a{
+.top .bucketBox a{
   color:#ff3d00;
   font-weight: 700;
 }
 
-.bucketBox a:hover{
+.top .bucketBox a:hover{
   color:black;
 }
 
-.fa-heart:before {
+.top .fa-heart:before {
     font-size: 29px;
+}
+
+.top label {
+    font-size: 40px;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    pointer-events: inherit;
 }

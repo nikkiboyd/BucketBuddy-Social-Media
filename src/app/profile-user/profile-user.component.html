@@ -3,18 +3,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 
 <div class="container">
   <div class="card">
     <div class="about-user">
-      <blockquote>
+
         <div class="img circle" style="background-image:url('https://articlebio.com/uploads/bio/2017/07/20/ryan-gosling.jpg')"></div>
-      </blockquote>
+
       <h3 class="username">{{(currentUser | async)?.firstName}} {{(currentUser | async)?.lastName}}</h3>
-      <blockquote>
+
         <h6>Contact {{(currentUser | async)?.firstName}}</h6>
         <p>phone: {{(currentUser | async)?.contact}}</p>
         <p>email: {{(currentUser | async)?.email}}</p>
@@ -23,4 +21,6 @@
     <a routerLink="update" class="yellow darken-2 btn-large"><i class="material-icons icon-white right">create</i>EDIT PROFILE</a>
     <hr/>
   </div>
+  <app-buddy-list></app-buddy-list>
+  <app-bucket-list></app-bucket-list>
 </div>
