@@ -1,11 +1,17 @@
 
 <h4>Edit Profile</h4>
 <form>
-  <label>Name:</label>
-  <input #newName placeholder="{{(currentUser | async)?.name}}"/>
+  <label>User Name:</label>
+  <input #newUserName placeholder="{{(currentUser | async)?.userName}}"/>
+  <label>First Name:</label>
+  <input #newFirstName placeholder="{{(currentUser | async)?.firstName}}"/>
+  <label>Last Name:</label>
+  <input #newLastName placeholder="{{(currentUser | async)?.lastName}}"/>
   <label>Age:</label>
-  <input placeholder="{{(currentUser | async)?.age}}"/>
+  <input #newAge placeholder="{{(currentUser | async)?.age}}"/>
+  <label>Contact Phone Number:</label>
+  <input #newContact placeholder="{{(currentUser | async)?.contact}}"/>
   <label>Bio:</label>
-  <textarea  rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
-  <button (click)="updateUserProfile(newName.value)">Update</button>
+  <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
+  <button (click)="updateUserProfile(newFirstName.value, newLastName.value, newUserName.value, newAge.value, newContact.value, newBio.value)">Update</button>
 </form>
