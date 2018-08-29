@@ -22,6 +22,6 @@ export class ProfileUserComponent implements OnInit {
     //   this.currentUserId = urlParameters['id'];
     // });
     this.currentUser = this.userService.getUserById("0");
-  };
+  }
 
 }
