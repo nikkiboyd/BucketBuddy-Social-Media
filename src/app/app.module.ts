@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { BuddyListComponent } from './buddy-list/buddy-list.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { ProfileUserComponent } from './profile-user/profile-user.component';
+import { MutualBucketItemsComponent } from './mutual-bucket-items/mutual-bucket-items.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     NotCompletedPipe,
     HomeComponent,
     ProfileUpdateComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    MutualBucketItemsComponent
   ],
   imports: [
     BrowserModule,
