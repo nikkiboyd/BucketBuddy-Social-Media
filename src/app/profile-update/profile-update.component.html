@@ -1,29 +1,50 @@
-
-<h4>Edit Profile</h4>
-<form>
-  <div>
-    <input #newUserName name="newUserName" value="{{(currentUser | async)?.userName}}"/>
-    <label for="newUserName">User Name</label>
-  </div>
-  <div>
-    <input #newFirstName value="{{(currentUser | async)?.firstName}}"/>
-    <label>First Name</label>
-  </div>
-  <div>
-    <input #newLastName value="{{(currentUser | async)?.lastName}}"/>
-    <label>Last Name</label>
-  </div>
-  <div>
-    <input #newAge value="{{(currentUser | async)?.age}}"/>
-    <label>Age</label>
-  </div>
-  <div>
-    <input #newContact value="{{(currentUser | async)?.contact}}"/>
-    <label>Contact Phone Number</label>
-  </div>
-  <div>
-    <textarea  #newBio rows="4" cols="50">{{(currentUser | async)?.bio}}</textarea>
-    <label>Bio</label>
-  </div>
-  <button (click)="updateUserProfile(newUserName.value, newFirstName.value, newLastName.value, newAge.value, newBio.value, newContact.value)">Update</button>
-</form>
+<div class="sign-up">
+  <h2 class="align cursive-font">Edit profile</h2>
+  <hr>
+  <form ngNativeValidate>
+    <div class="form-row">
+      <div class="input-field col-md-12">
+        <i class="material-icons prefix">insert_comment</i>
+        <textarea #newBio class="materialize-textarea">{{(currentUser | async)?.bio}}</textarea>
+        <label class="active" for="textarea1">About me</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">filter_1</i>
+          <input #newFirstName type="text" value="{{(currentUser | async)?.firstName}}" class="form-control" id="icon_first" placeholder="Jane" required>
+          <label class="active" for="icon_first">First name</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">filter_2</i>
+          <input #newLastName type="text" value="{{(currentUser | async)?.lastName}}" class="form-control" id="icon_last" placeholder="Doe" required>
+          <label class="active" for="icon_last">Last name</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input #newContact type="number" value="{{(currentUser | async)?.contact}}" class="form-control validate" id="icon_phone" required>
+          <label class="active" for="icon_phone">Phone number</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">cake</i>
+          <input #newAge class="form-control" type="date" value="{{(currentUser | async)?.dob}}" id="icon_cake" required>
+          <label for="icon_cake">Date of birth</label>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <button class="btn" (click)="updateUserProfile(newFirstName.value, newLastName.value, newAge.value, newBio.value, newContact.value)">Update</button>
+    <!-- <button (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" type="submit" class="btn btn-primary">Sign Up</button> -->
+      <!-- <a id="sign-up" (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" class="pulse yellow darken-2 btn-large"><i class="material-icons right">face</i>MAKE CHANGES</a> -->
+    </div>
+  </form>
+</div>
