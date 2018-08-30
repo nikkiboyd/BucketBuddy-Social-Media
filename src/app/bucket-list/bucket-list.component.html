@@ -51,8 +51,8 @@
         <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p class="vertical-align">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
-        <p class="vertical-align">Completed: {{bucketListItem.dateCompleted}}</p>
+        <p class="vertical-align" id="added">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
+        <p class="vertical-align" id="completed">Completed: {{bucketListItem.dateCompleted}}</p>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align"><a (click)="deleteBucketItem(bucketListItem.$key)" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
