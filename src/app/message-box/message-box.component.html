@@ -1,0 +1,8 @@
+<div id="messageDiv" class="col-md-12">
+  <div class="messageBox">
+    <textarea  #newBio rows="6" cols="50" #message>Ask {{user.firstName}} to {{itemTitle}} with you!</textarea>
+  </div>
+  <div class="messageButton">
+    <a class="yellow darken-2 btn edit-button" (click)="messageUser(message.value); message.value=''">Message</a>
+  </div>
+</div>
