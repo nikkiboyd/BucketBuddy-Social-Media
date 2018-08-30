@@ -68,7 +68,10 @@ hr {
 
 .edit-button {
   position: relative;
-  top: -50px;
-  left: 20px;
   max-width: 100px;
+}
+
+.dob{
+    text-align: left;
+    margin-top: 53px;
 }

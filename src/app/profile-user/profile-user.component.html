@@ -11,7 +11,10 @@
     <h3 class="username">{{(currentUser | async)?.firstName}} {{(currentUser | async)?.lastName}}</h3>
     <p class="bio">{{(currentUser | async)?.bio}}</p>
     <hr>
-      <app-buddy-list></app-buddy-list>
+    <p class="dob">Date of Birth: {{(currentUser | async)?.dob}}</p>
+    <p class="phone">Phone: {{(currentUser | async)?.phone}}</p>
+    <p class="email">Email: {{(currentUser | async)?.email}}</p>
+
   </div>
   <a routerLink="update" class="yellow darken-2 btn-small edit-button"><i class="material-icons icon-white right">create</i>EDIT</a>
 </div>
