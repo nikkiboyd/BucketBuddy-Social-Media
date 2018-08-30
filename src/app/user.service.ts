@@ -57,14 +57,14 @@ export class UserService {
     this.bucketList.push(newBucketItem);
   }
 
-  deleteBucketItem(bucketItemId: string){
-    let userId = "0";
+  deleteBucketItem(bucketItemId: string, currentUserId: string){
+    let userId = currentUserId;
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.remove();
   }
 
-  updateBucketItemTitle(bucketItemId:string, newTitle:string){
-    let userId = "0";
+  updateBucketItemTitle(bucketItemId:string, newTitle:string, currentUserId: string){
+    let userId = currentUserId;
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.update({
       title: newTitle

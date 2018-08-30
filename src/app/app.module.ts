@@ -20,6 +20,7 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { BuddyDetailComponent } from './buddy-detail/buddy-detail.component';
 import { MutualBucketItemsComponent } from './mutual-bucket-items/mutual-bucket-items.component';
+import { BucketListBuddyComponent } from './bucket-list-buddy/bucket-list-buddy.component';
 
 
 export const firebaseConfig = {
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     ProfileUpdateComponent,
     ProfileUserComponent,
     BuddyDetailComponent,
-    MutualBucketItemsComponent
+    MutualBucketItemsComponent,
+    BucketListBuddyComponent
   ],
   imports: [
     BrowserModule,
