@@ -11,10 +11,17 @@
     <h3 class="username">{{(currentUser | async)?.firstName}} {{(currentUser | async)?.lastName}}</h3>
     <p class="bio">{{(currentUser | async)?.bio}}</p>
     <hr>
-    <p class="dob">Date of Birth: {{(currentUser | async)?.dob}}</p>
-    <p class="phone">Phone: {{(currentUser | async)?.phone}}</p>
-    <p class="email">Email: {{(currentUser | async)?.email}}</p>
-
+    <div class="user-info">
+      <div>
+        <p><i class="material-icons prefix">cake</i>{{(currentUser | async)?.dob}}</p>
+      </div>
+      <div>
+        <p><i class="material-icons prefix">local_phone</i>{{(currentUser | async)?.contact}}</p>
+      </div>
+      <div>
+        <p><i class="material-icons prefix">email</i>{{(currentUser | async)?.email}}</p>
+      </div>
+    </div>
   </div>
   <a routerLink="update" class="yellow darken-2 btn-small edit-button"><i class="material-icons icon-white right">create</i>EDIT</a>
 </div>

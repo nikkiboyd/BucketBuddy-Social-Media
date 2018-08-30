@@ -34,16 +34,15 @@ export class InboxComponent implements OnInit {
   }
 
 
-  messageUser(senderId:string, message:string){
+  messageUser(receiverId:string, message:string){
     this.showOrHideReply = 0;
     let currentDate = new Date().toString();
     let senderName = this.currentUser.firstName + " " + this.currentUser.lastName;
-    let comment = new Comment(senderName, senderId, message, currentDate);
-    this.userService.messageUser(comment, this.currentUserID);
+    let comment = new Comment(senderName, this.currentUser.$key, message, currentDate);
+    this.userService.messageUser(comment, receiverId);
   }
 
   closeMessageBox(){
     this.showOrHideReply = 0;
   }
-
 }

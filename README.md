@@ -13,7 +13,7 @@ _Currently all users of Bucket Buddy need to have a gmail account._
 ## Setup/Installation Requirements
 
 * _A gmail account is needed to use Bucket Buddy. If you do not already have a gmail account you can get a free one here: https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true_
-* _Visit Bucket Buddy here:_
+* _Visit Bucket Buddy here: https://bucket-list-e2780.firebaseapp.com_
 * _Click Login / Sign Up to get started_
 
 ## User Stories - MVP

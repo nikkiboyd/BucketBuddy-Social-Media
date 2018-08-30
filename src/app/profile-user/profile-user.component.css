@@ -19,6 +19,13 @@
   border-radius: 50%;
 }
 
+.user-info {
+  float: right;
+  position: relative;
+  top: -150px;
+  left: -50px;
+}
+
 hr {
   float: left;
   width: 500px;
