@@ -16,6 +16,10 @@
 </div>
 <app-bucket-list></app-bucket-list>
 
+<div >
+  <p *ngFor="let comments of currentUserComments">{{comments}}</p>
+</div>
+
 
 <!-- <div class="contact-info">
   <h6>Contact {{(currentUser | async)?.firstName}}</h6>
