@@ -50,9 +50,8 @@ export class BuddyListComponent implements OnInit {
           this.user = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
             this.user = dataLastEmittedFromObserver;
             this.buddyList = this.user.friends;
+            this.createViewedBuddyObjects();
           });
-
-          this.createViewedBuddyObjects();
         } else {
           this.homeProfile = true;
           this.buddyList = this.loggedInUser.friends;
