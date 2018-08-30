@@ -5,35 +5,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<div class="log-in">
-  <h2 class="cursive-font">Log in</h2>
-  <h6>Welcome back, we've missed you!</h6>
-  <hr>
+<div class="log-in card">
+  <h4 class="welcome">Welcome to</h4>
+  <h6 class="cursive-font">Bucket <img class="bucket-logo" src="/assets/bucketbuddy.png" /> Buddy</h6>
+<br>
   <form ngNativeValidate>
-    <!-- <div class="form-group row">
-      <label for="loginUsername" class="col-sm-4 col-form-label">Username:</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" id="loginUsername" placeholder="bucketbuddy" required>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="loginPassword" class="col-sm-4 col-form-label">Password:</label>
-      <div class="col-sm-8">
-        <input type="password" class="form-control" id="loginPassword" placeholder="••••••••••••" required>
-      </div>
-    </div> -->
-    <div *ngIf ="!isLoggedIn" class="btn white darken-4 col s10 m4">
-       <a (click)="login()" style="text-transform:none">
-           <div class="left">
-               <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-           </div>
-          <p class="google-login">Login with Google</p>
-       </a>
+    <div *ngIf ="!isLoggedIn">
+        <a id="sign-up" (click)="login()" class="pulse yellow darken-2 btn-large"><i class="material-icons icon-white right">face</i>LOG IN / SIGN UP</a>
     </div>
   </form>
 </div>
 
-<div class="sign-up">
+<!-- <div class="sign-up">
   <h2 class="align cursive-font">Sign up</h2>
   <h6 class="align">Ready to kick items off your bucket list? Join the fun, it's free!</h6>
   <hr>
@@ -65,13 +48,11 @@
         <div class="col-12">
           <label for="inputBirthdate">When were you born?</label>
           <input #newBirthdate class="form-control" type="date" value="0000-00-00" id="inputBirthdate" required>
-          <!-- <input type="text" class="datepicker"> -->
         </div>
       </div>
     </div>
     <div class="center">
-    <!-- <button (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" type="submit" class="btn btn-primary">Sign Up</button> -->
       <a id="sign-up" (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" class="pulse yellow darken-2 btn-large"><i class="material-icons icon-white right">face</i>SIGN UP</a>
     </div>
   </form>
-</div>
+</div> -->
