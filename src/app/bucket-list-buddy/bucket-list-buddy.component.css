@@ -72,6 +72,10 @@ text-align: center;
     border-right: 1px dashed #ffccbc;
 }
 
+.top .row .col-sm-3:last-of-type {
+    border-right: 0px;
+}
+
 .top .row .col-sm-2:last-of-type {
     border-right: 0px;
 }

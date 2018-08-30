@@ -19,11 +19,6 @@
         <div class="vertical-align">
           <div class="">
             <p id="item-title"><a routerLink="/items/{{bucketListItem.title}}">{{bucketListItem.title}}</a></p>
-            <a><i (click)="enableEditor(bucketListItem.$key)" class="material-icons icon-yellow right">create</i></a>
-          </div>
-          <div *ngIf="editor == bucketListItem.$key">
-            <input class="form-control margin-top" type="text" name="newTitle" value="{{bucketListItem.title}}" #newTitle>
-            <button class="btn btn-danger margin-top" (click)="editTitle(bucketListItem.$key, newTitle.value)" type="button" name="button">Save Edit</button>
           </div>
         </div>
       </div>
