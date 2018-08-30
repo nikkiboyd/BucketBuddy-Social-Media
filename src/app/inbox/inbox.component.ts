@@ -42,4 +42,8 @@ export class InboxComponent implements OnInit {
     this.userService.messageUser(comment, this.currentUserID);
   }
 
+  closeMessageBox(){
+    this.showOrHideReply = 0;
+  }
+
 }

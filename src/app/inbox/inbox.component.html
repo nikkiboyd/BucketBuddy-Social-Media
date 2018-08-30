@@ -3,10 +3,11 @@
     <h3>Incoming Messages</h3>
   </div>
   <div class="card main-head">
-    <div *ngFor="let message of currentUserInbox | async">
+    <div *ngFor="let message of currentUserInbox | async | reverse">
       <p class="text-bubble">{{message.comment}}</p>
       <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span  (click)="initiateReply(message.$key)" class="messageBack">Message Back</span></p>
       <div class="bigBox" *ngIf="showOrHideReply == message.$key">
+        <img (click)="closeMessageBox()" class="close-icon" src="/assets/close-icon.png" />
         <div class="form-group" >
           <input type="text" name="message" #messageReply>
           <label for="message">Message</label>

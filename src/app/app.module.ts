@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { BucketListComponent } from './bucket-list/bucket-list.component';
 import { UniquePipe } from './unique.pipe';
+import { ReversePipe } from './reverse.pipe';
 import { CompletedPipe } from './completed.pipe';
 import { NotCompletedPipe } from './notcompleted.pipe';
 import { HomeComponent } from './home/home.component';
@@ -38,6 +39,7 @@ export const firebaseConfig = {
     BuddyListComponent,
     UniquePipe,
     CompletedPipe,
+    ReversePipe,
     NotCompletedPipe,
     HomeComponent,
     ProfileUpdateComponent,
