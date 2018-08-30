@@ -1,3 +1,27 @@
+.itemTitle {
+  font-family: 'Lato', sans-serif;
+  color: #f4511e;
+  font-size: 30px;
+  text-align: center;
+}
+
+#back {
+  position: relative;
+  top: -50px;
+  color: white;
+}
+
+a {
+  color:  #f4511e;
+  font-weight: bold;
+}
+
+.greeting {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #5A5C5E;
+  text-align: center;
+}
 
 .top .header{
     margin-top: 2rem;
@@ -31,6 +55,10 @@
     border-right: 0px;
 }
 
+.about {
+  font-size: 16px;
+  color: #fbc02d;
+}
 .lower{
     border: 1px solid #ffccbc;
     padding: 10px;
