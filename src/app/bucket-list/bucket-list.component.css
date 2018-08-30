@@ -17,6 +17,25 @@
   transform: scale(2) !important;
   }
 
+#new-item {
+  color: white;
+  margin: 20px;
+  WIDTH: 120px;
+}
+
+#newBucketItem {
+  margin: 30px;
+  padding: 20px;
+}
+
+#added {
+  color: #757575;
+}
+
+#completed {
+  color: #00c853;
+}
+
 .top .row p {
   margin-bottom: 0px;
 }

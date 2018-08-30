@@ -1,5 +1,5 @@
 <div class="sign-up">
-  <h2 class="align cursive-font">Edit profile</h2>
+  <h2 class="align cursive-font">Tell us all about you!</h2>
   <hr>
   <form ngNativeValidate>
     <div class="form-row">
@@ -7,6 +7,11 @@
         <i class="material-icons prefix">insert_comment</i>
         <textarea #newBio class="materialize-textarea">{{(currentUser | async)?.bio}}</textarea>
         <label class="active" for="textarea1">About me</label>
+      </div>
+      <div class="input-field col-md-12">
+        <i class="material-icons prefix">add_a_photo</i>
+        <input #newProfilePicture class="form-control" value="{{(currentUser | async)?.profilePicture}}">
+        <label class="active">Add a photo of you via URL</label>
       </div>
     </div>
     <div class="form-row">
@@ -36,15 +41,13 @@
       <div class="form-group col-md-6">
         <div class="input-field col s6">
           <i class="material-icons prefix">cake</i>
-          <input #newAge class="form-control" type="date" value="{{(currentUser | async)?.dob}}" id="icon_cake" required>
+          <input #newDob class="form-control" type="date" value="{{(currentUser | async)?.dob}}" id="icon_cake" required>
           <label for="icon_cake">Date of birth</label>
         </div>
       </div>
     </div>
     <div class="center">
-      <button class="btn" (click)="updateUserProfile(newFirstName.value, newLastName.value, newAge.value, newBio.value, newContact.value)">Update</button>
-    <!-- <button (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" type="submit" class="btn btn-primary">Sign Up</button> -->
-      <!-- <a id="sign-up" (click)="createUser(newUsername.value, newPassword.value, newFirstName.value, newLastName.value, newPhone.value, newEmail.value, newBirthdate.value, '', [''], [''], ['']); newUsername.value = ''; newPassword.value = ''; newFirstName.value = ''; newLastName.value = ''; newPhone.value = ''; newEmail.value = ''; newBirthdate.value = ''" class="pulse yellow darken-2 btn-large"><i class="material-icons right">face</i>MAKE CHANGES</a> -->
+      <a id="g2g" (click)="updateUserProfile(newFirstName.value, newLastName.value, newDob.value, newBio.value, newContact.value, newProfilePicture.value)" class="pulse yellow darken-2 btn-large"><i class="material-icons icon-white right">face</i>GOOD TO GO!</a>
     </div>
   </form>
 </div>

@@ -28,16 +28,17 @@ export class ProfileUpdateComponent implements OnInit {
     })
   };
 
-  updateUserProfile(newFirstName: string, newLastName: string, newAge: string, newBio: string, newContact: string){
+  updateUserProfile(newFirstName: string, newLastName: string, newDob: string, newBio: string, newContact: string, newProfilePicture: string){
     var userEmailpath = this.database.object('users/'+ this.currentUserID);
     userEmailpath.update(
       {
         email: this.currentUserEmail,
         bio: newBio,
-        age: newAge,
+        dob: newDob,
         firstName: newFirstName,
         lastName: newLastName,
-        contact: newContact
+        contact: newContact,
+        profilePicture: newProfilePicture
       })
     this.router.navigate(['profileuser']);
   }

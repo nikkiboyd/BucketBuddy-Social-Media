@@ -51,8 +51,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  createUser(username: string, password: string, firstName: string, lastName: string, phone: number, email: string, dob: Date, bio: string, bucketList: BucketList[], comments: string[], friends: string[]) {
-    let newUser: User = new User(username, password, firstName, lastName, phone, email, dob, bio, bucketList, comments, friends);
+  createUser(firstName: string, lastName: string, phone: number, email: string, dob: Date, bio: string, bucketList: BucketList[], comments: string[], friends: string[], profilePicture: string) {
+    let newUser: User = new User(firstName, lastName, phone, email, dob, bio, bucketList, comments, friends, profilePicture);
     this.userService.addUser(newUser);
   }
 
