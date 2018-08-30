@@ -1,14 +1,32 @@
-<img src="../assets/bucketbuddy.png">
+<head>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-<h3 class="username">{{(currentBuddy | async)?.firstName}} {{(currentBuddy | async)?.lastName}}</h3>
+<div class="card main-head">
+    <div class="about-user">
+      <div class="img circle" style="background-image:url('{{(currentBuddy | async)?.profilePicture}}')" bypassSecurityTrustUrl></div>
+      <h3 class="username">{{(currentBuddy | async)?.firstName}} {{(currentBuddy | async)?.lastName}}</h3>
+      <p class="bio">{{(currentBuddy | async)?.bio}}</p>
+      <hr>
+      <!-- <app-buddy-list></app-buddy-list> -->
+  </div>
+</div>
+
+<div class="card">
+<app-bucket-list></app-bucket-list>
+</div>
+<!-- <h3 class="username">{{(currentBuddy | async)?.firstName}} {{(currentBuddy | async)?.lastName}}</h3>
 
 <h6>Contact {{(currentBuddy | async)?.firstName}}</h6>
 <p>phone: {{(currentBuddy | async)?.contact}}</p>
-<p>email: {{(currentBuddy | async)?.email}}</p>
+<p>email: {{(currentBuddy | async)?.email}}</p> -->
 
-<p>{{(currentBuddy | async)?.bio}}</p>
+<!-- <p>{{(currentBuddy | async)?.bio}}</p>
 <hr/>
 
     <app-buddy-list></app-buddy-list>
 
-    <app-bucket-list-buddy></app-bucket-list-buddy>
+    <app-bucket-list-buddy></app-bucket-list-buddy> -->

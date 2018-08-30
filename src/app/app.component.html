@@ -5,10 +5,11 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="isLoggedIn">
-        <a (click)="logout()">Log out</a>
+        <a (click)="logout()" class="btn-floating btn-small waves-effect waves-light red accent-4"><i class="material-icons">sync_disabled</i></a>
       </li>
       <li *ngIf ="!isLoggedIn">
-        <a (click)="login()">Log in</a>
+        <a (click)="login()" class="btn-floating btn-small waves-effect waves-light  light-green accent-4"><i class="material-icons">sync</i></a>
+        <!-- <a (click)="login()">Log in</a> -->
       </li>
     </ul>
   </div>

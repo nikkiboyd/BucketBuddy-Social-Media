@@ -35,7 +35,8 @@ export class UserService {
         friends: [""],
         firstName: "newFirstName",
         lastname: "newLastName",
-        contact: ""
+        contact: "",
+        profilePicture: "https://ibb.co/cROpf9"
       }
     );
   }

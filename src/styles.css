@@ -7,6 +7,7 @@ a:hover {
   font-family: 'Lobster', cursive;
   color: #fbc02d;
   margin-left: 75px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .bucket-logo {

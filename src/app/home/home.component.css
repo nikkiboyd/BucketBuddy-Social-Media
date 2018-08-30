@@ -5,7 +5,12 @@
   min-width: 300px;
   margin: auto;
   width: 50%;
-  padding: 10px;
+  padding: 120px;
+  background-image: url("../../assets/burst.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  /* opacity: 0.2; */
   text-align: center;
 }
 
@@ -14,7 +19,7 @@
 }
 
 .bucket-logo {
-  width: 10%;
+  width: 20%;
   padding-bottom: 8px;
 }
 
@@ -25,9 +30,10 @@
 }
 
 .cursive-font {
-  font-size: 36px;
+  font-size: 46px;
   font-family: 'Lobster', cursive;
   color: #fbc02d;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .name {
@@ -38,10 +44,17 @@
 
 .welcome {
   text-transform: uppercase;
-  font-size: 20px;
-  color: #e0e0e0;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .align {
   text-align: center;
+}
+
+#sign-up {
+  color: white;
+  font-weight: bold;
 }

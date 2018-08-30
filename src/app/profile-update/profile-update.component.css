@@ -13,3 +13,14 @@ i.icon-white {
   width: 50%;
   padding: 10px;
 }
+
+.cursive-font {
+  font-size: 46px;
+  font-family: 'Lobster', cursive;
+  color: #fbc02d;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#g2g {
+  color: white;
+}

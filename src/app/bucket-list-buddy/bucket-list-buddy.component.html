@@ -17,7 +17,7 @@
         <h4>Delete</h4>
       </div>
     </div>
-    <!-- <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
+    <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
       <div class="col-sm-3">
         <div class="vertical-align">
           <div class="">
@@ -56,7 +56,7 @@
       <div class="col-sm-2">
         <p class="vertical-align"><a (click)="deleteBucketItem(bucketListItem.$key)" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
       </div>
-    </div> -->
+    </div>
     <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row completed">
       <div class="col-sm-3">
         <div class="vertical-align">

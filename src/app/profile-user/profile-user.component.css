@@ -9,13 +9,23 @@
 }
 
 .bio {
-  max-width: 700px;
-  margin-left: 140px;
+  max-width: 500px;
+  position: relative;
+  top: -30px;
   padding: 20px;
 }
 
 .img-circle {
   border-radius: 50%;
+}
+
+hr {
+  float: left;
+  width: 500px;
+  position: relative;
+  top: -80px;
+  left: 125px;
+  border-color: #f4511e;
 }
 
 .img-responsive {
@@ -42,6 +52,8 @@
 }
 
 .main-head {
+  position: relative;
+  margin-top: 0px;
   padding: 50px;
 }
 
@@ -55,5 +67,8 @@
 }
 
 .edit-button {
-  max-width: 150px;
+  position: relative;
+  top: -50px;
+  left: 20px;
+  max-width: 100px;
 }

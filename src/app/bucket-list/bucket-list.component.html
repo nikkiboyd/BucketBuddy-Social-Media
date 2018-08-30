@@ -84,8 +84,8 @@
         <p class="vertical-align">{{bucketListItem.category}}</p>
       </div>
       <div class="col-sm-3">
-        <p class="vertical-align">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
-        <p class="vertical-align">Completed: {{bucketListItem.dateCompleted | date:'short'}}</p>
+        <p class="vertical-align" id="added">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
+        <p class="vertical-align" id="completed">Completed: {{bucketListItem.dateCompleted | date:'short'}}</p>
       </div>
       <div class="col-sm-2">
         <p class="vertical-align"><a (click)="deleteBucketItem(bucketListItem.$key)" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
@@ -94,15 +94,15 @@
   </div>
 
   <div id="newBucketItem" class="card col-md-2">
-    <h4>New Goal</h4>
+    <h4>Onto my next adventure...</h4>
     <div class="form-group">
-      <input class="form-control" type="text" name="title" #title placeholder="Enter goal here">
+      <input class="form-control" type="text" name="title" #title placeholder="...what will it be?">
     </div>
     <div class="form-group">
       <select class="form-control" name="categories" #category>
         <option *ngFor = "let category of allCategories | unique" value="{{category}}">{{category}}</option>
       </select>
     </div>
-    <button type="button" class="btn btn-danger" name="button" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '">Submit</button>
+    <a id="new-item" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '" class="yellow darken-2 btn-small"><i class="material-icons icon-white right">view_list</i>ADD</a>
   </div>
 </div>
