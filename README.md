@@ -1,27 +1,49 @@
-# BucketList
+# _Bucket Buddy_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+#### _A social media bucket list tracker, 8/29/18_
 
-## Development server
+#### _**Kelli McCloskey, Nikki Boyd, Ryan Putman & Renee Sarley**_
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description
 
-## Code scaffolding
+_Users of Bucket Buddy can track their bucket list items and connect with other users that have similar bucket list items. Users can message each other with words of encouragement, questions about their bucket list, or even requests to meet up in real life and complete bucket list items together._<br>
+_Currently all users of Bucket Buddy need to have a gmail account._
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Setup/Installation Requirements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+* _A gmail account is needed to use Bucket Buddy. If you do not already have a gmail account you can get a free one here: https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true_
+* _Visit Bucket Buddy here:_
+* _Click Login / Sign Up to get started_
 
-## Running unit tests
+## User Stories - MVP
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+_A User needs to be able to report an ICE raid which will include the location, date, time and a description of the raid._<br>
+_A User needs to be able to see all the reported ICE raids on a map_<br>
+_A User should be able to click on a raid on the map and see the details of the raid_<br>
+_A User needs to be able to get a text message each time an ICE raid is reported._
 
-## Running end-to-end tests
+## User Stories - Additional features for future implementation
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+_A User should be able to filter the results on the map to view all raids that have occurred within a specified timeframe_<br>
+_A User should be able to select which cities they would like to receive alerts for._<br>
 
-## Further help
+## Known Bugs
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+_The Buddy list on the profile page will add multiple instances of the same buddy when that buddy alters their profile. The duplicates go away upon refresh._
+
+## Support and contact details
+
+_Please email with any questions._
+
+## Technologies Used
+
+* _JavaScript with Angular_
+* _FireBase_
+
+
+### License
+
+*This software is licensed under the MIT license.*
+
+Copyright (c) 2018 **_Kelli McCloskey, Nikki Boyd, Ryan Putman & Renee Sarley_**
