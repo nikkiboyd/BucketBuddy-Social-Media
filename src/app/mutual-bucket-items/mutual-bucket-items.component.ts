@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { Comment } from '../models/comment.model';
+import { AuthenticationService } from '../authentication.service';
+
 
 
 @Component({
@@ -13,12 +16,16 @@ import { FirebaseListObservable } from 'angularfire2/database';
   providers:[UserService]
 
 })
+
 export class MutualBucketItemsComponent implements OnInit {
   itemTitle;
   allUsers;
   bucketItemMatches;
+  currentUser;
+  currentUserID;
 
-  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService) { }
+
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -28,6 +35,10 @@ export class MutualBucketItemsComponent implements OnInit {
       this.allUsers = dataLastEmittedFromObserver;
       this.getMutualItems();
     });
+    this.authService.user.subscribe(u => {
+      this.currentUserID = u.uid;
+      this.currentUser = this.userService.getUserById(u.uid);
+    })
   }
 
   getMutualItems(){
@@ -43,7 +54,10 @@ export class MutualBucketItemsComponent implements OnInit {
       this.bucketItemMatches = usersThatMatchQuery;
     }
 
-messageUser(userId:string, message:string){
-  this.userService.messageUser(userId, message);
+messageUser(senderName:string, senderId:string, userId:string, message:string){
+  let currentDate = new Date().toString();
+  let comment = new Comment(senderName, senderId, message, currentDate, "false");
+  console.log(comment);
+  // this.userService.messageUser(userId, message);
 }
 }
