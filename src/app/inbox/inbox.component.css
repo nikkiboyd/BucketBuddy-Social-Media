@@ -33,3 +33,32 @@ h3 {
 .senderName {
     margin-left: 10px;
 }
+
+a:hover{
+  color:#f4511e;]
+  text-decoration: none;
+}
+
+a{
+  color:#26a69a;
+}
+
+.messageBack:hover{
+color: #f4511e;
+}
+
+.messageBack{
+color:#26a69a;
+}
+
+.form-group {
+
+}
+
+.bigBox {
+  margin-bottom: 1rem;
+  width: 98%;
+  margin: 0 auto 1rem;
+  background: #efefef;
+  padding: 10px;
+}

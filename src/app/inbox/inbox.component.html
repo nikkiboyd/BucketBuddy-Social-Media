@@ -3,9 +3,16 @@
     <h3>Incoming Messages</h3>
   </div>
   <div class="card main-head">
-<div *ngFor="let message of currentUserInbox | async">
-  <p class="text-bubble">{{message.comment}}</p>
-  <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span *ngIf="message.replied == 'false'">Message Back</span><span *ngIf="message.replied == 'true'">Already Replied</span></p>
-</div>
+    <div *ngFor="let message of currentUserInbox | async">
+      <p class="text-bubble">{{message.comment}}</p>
+      <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span *ngIf="message.replied == 'false'" (click)="initiateReply(message.$key)" class="messageBack">Message Back</span><span *ngIf="message.replied == 'true'">Already Replied</span></p>
+      <div class="bigBox" *ngIf="showOrHideReply == message.$key">
+        <div class="form-group" >
+          <input type="text" name="message" #messageReply>
+          <label for="message">Message</label>
+        </div>
+        <button class="yellow darken-2 btn edit-button" type="button" name="button" (click)="messageUser(message.senderId, messageReply.value)">Message Back</button>
+      </div>
+    </div>
   </div>
 </div>
