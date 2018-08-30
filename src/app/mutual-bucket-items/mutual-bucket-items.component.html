@@ -1,15 +1,28 @@
-<div class="container" id="matches">
+<div class="top">
+  <a class="yellow darken-2 btn edit-button" routerLink="/profileuser"><<< Back to profile</a>
   <h2>All users with <span class="itemTitle">{{itemTitle}}</span> as a Bucket List Item</h2>
   <p>Here are some users you should match with to accomplish your goal of <span class="itemTitle">{{itemTitle}}</span></p>
-  <div class="row" *ngFor="let user of bucketItemMatches">
-    <div class="col-md-4">
-      <p>{{user.firstName}} {{user.lastName}}</p>
+<div id="matches">
+  <div class="row align-center header">
+    <div class="col-md-5">
+      <h4>User Name</h4>
     </div>
-    <div class="col-md-4">
-      <p>{{user.contact}}</p>
-    </div>
-    <div class="col-md-4">
-      <button type="button" name="button">Message {{user.$key}}</button>
+    <div class="col-md-7">
+      <h4>Message User</h4>
     </div>
   </div>
+  <div class="row lower" *ngFor="let user of bucketItemMatches">
+    <div class="col-md-5">
+      <p><a routerLink="/buddy/{{user.$key}}">{{user.firstName}} {{user.lastName}}</a></p>
+    </div>
+    <div class="col-md-7">
+      <div class="messageBox">
+        <textarea  #newBio rows="6" cols="50" #message>Ask {{user.firstName}} to {{itemTitle}} with you!</textarea>
+      </div>
+      <div class="messageButton">
+        <a class="yellow darken-2 btn edit-button" (click)="messageUser(user.$key, message.value); message.value=''">Message</a>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

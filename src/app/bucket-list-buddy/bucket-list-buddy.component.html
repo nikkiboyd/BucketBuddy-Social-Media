@@ -1,4 +1,4 @@
-<div class="top row" id="matches">
+<div class="top row">
   <div class="bucketBox col-md 10">
     <div class="row align-center header">
       <div class="col-sm-3">
@@ -17,13 +17,12 @@
         <h4>Delete</h4>
       </div>
     </div>
-    <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
+    <!-- <div *ngFor = "let bucketListItem of userBucketList | async | notCompleted" class="row notCompleted">
       <div class="col-sm-3">
         <div class="vertical-align">
           <div class="">
             <p id="item-title"><a routerLink="/items/{{bucketListItem.title}}">{{bucketListItem.title}}</a></p>
             <a><i (click)="enableEditor(bucketListItem.$key)" class="material-icons icon-yellow right">create</i></a>
-            <!-- <img src="/assets/edit-icon.png" alt="edit" class="edit-icon" (click)="enableEditor(bucketListItem.$key)"> -->
           </div>
           <div *ngIf="editor == bucketListItem.$key">
             <input class="form-control margin-top" type="text" name="newTitle" value="{{bucketListItem.title}}" #newTitle>
@@ -57,7 +56,7 @@
       <div class="col-sm-2">
         <p class="vertical-align"><a (click)="deleteBucketItem(bucketListItem.$key)" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
       </div>
-    </div>
+    </div> -->
     <div *ngFor = "let bucketListItem of userBucketList | async | Completed" class="row completed">
       <div class="col-sm-3">
         <div class="vertical-align">
@@ -87,22 +86,6 @@
         <p class="vertical-align">Added: {{bucketListItem.dateAdded | date:'short'}}</p>
         <p class="vertical-align">Completed: {{bucketListItem.dateCompleted | date:'short'}}</p>
       </div>
-      <div class="col-sm-2">
-        <p class="vertical-align"><a (click)="deleteBucketItem(bucketListItem.$key)" class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a></p>
-      </div>
     </div>
-  </div>
-
-  <div id="newBucketItem" class="card col-md-2">
-    <h4>New Goal</h4>
-    <div class="form-group">
-      <input class="form-control" type="text" name="title" #title placeholder="Enter goal here">
-    </div>
-    <div class="form-group">
-      <select class="form-control" name="categories" #category>
-        <option *ngFor = "let category of allCategories | unique" value="{{category}}">{{category}}</option>
-      </select>
-    </div>
-    <button type="button" class="btn btn-danger" name="button" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '">Submit</button>
   </div>
 </div>

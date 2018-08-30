@@ -8,6 +8,7 @@ import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/databas
 export class UserService {
   users: FirebaseListObservable<any[]>;
   bucketList: FirebaseListObservable<any[]>;
+  userToMessage: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
   this.users = database.list('users');
@@ -22,7 +23,6 @@ export class UserService {
   }
 
   createNewUserInTable(userId: string, userEmail: string){
-    console.log("in the create new user method")
     var userEmailpath = this.database.object('users/'+userId);
     userEmailpath.set(
       {
@@ -57,17 +57,23 @@ export class UserService {
     this.bucketList.push(newBucketItem);
   }
 
-  deleteBucketItem(bucketItemId: string){
-    let userId = "0";
+  deleteBucketItem(bucketItemId: string, currentUserId: string){
+    let userId = currentUserId;
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.remove();
   }
 
-  updateBucketItemTitle(bucketItemId:string, newTitle:string){
-    let userId = "0";
+  updateBucketItemTitle(bucketItemId:string, newTitle:string, currentUserId: string){
+    let userId = currentUserId;
     let bucketListItem = this.database.object('users/' + userId + '/bucketlist/' + bucketItemId);
     bucketListItem.update({
       title: newTitle
     });
+  }
+
+  messageUser(userId:string, message:string){
+
+    this.userToMessage = this.database.list('users/' + userId + '/comments');
+    this.userToMessage.push(message);
   }
 }

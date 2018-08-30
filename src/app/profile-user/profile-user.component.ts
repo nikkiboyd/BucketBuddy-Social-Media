@@ -16,6 +16,7 @@ import { AuthenticationService } from '../authentication.service';
 export class ProfileUserComponent implements OnInit {
   currentUser;
   currentUserID;
+  currentUserComments;
 
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private authService: AuthenticationService) {}
@@ -24,6 +25,7 @@ export class ProfileUserComponent implements OnInit {
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
       this.currentUser = this.userService.getUserById(this.currentUserID);
+      this.currentUserComments = this.currentUser.comments
     })
   };
 

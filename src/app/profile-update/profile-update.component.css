@@ -1,0 +1,15 @@
+i.icon-white {
+    color: white;
+}
+
+#sign-up {
+  color: white;
+}
+
+.sign-up {
+  padding-top: 100px;
+  min-width: 500px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}

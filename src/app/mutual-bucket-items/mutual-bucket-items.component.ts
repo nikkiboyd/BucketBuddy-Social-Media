@@ -31,19 +31,19 @@ export class MutualBucketItemsComponent implements OnInit {
   }
 
   getMutualItems(){
-
   let usersThatMatchQuery = [];
-  let test = "Get 100 Catssfadfs";
       this.allUsers.forEach(user => {
         for (let item in user.bucketlist){
-          if(user.bucketlist[item].title == test){
+          if(user.bucketlist[item].title == this.itemTitle){
             usersThatMatchQuery.push(user);
           } else{
           }
         }
       });
       this.bucketItemMatches = usersThatMatchQuery;
-      console.log(this.bucketItemMatches)
     }
 
+messageUser(userId:string, message:string){
+  this.userService.messageUser(userId, message);
+}
 }

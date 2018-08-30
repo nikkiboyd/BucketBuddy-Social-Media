@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     {
        path: 'items/:id',
        component: MutualBucketItemsComponent
-     }
+     },
  ];
 
  export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
