@@ -7,6 +7,8 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
 import { HomeComponent } from './home/home.component';
 import { BuddyDetailComponent } from './buddy-detail/buddy-detail.component';
 import { MutualBucketItemsComponent } from './mutual-bucket-items/mutual-bucket-items.component';
+import { InboxComponent } from './inbox/inbox.component';
+
 
 const appRoutes: Routes = [
   {
@@ -37,6 +39,10 @@ const appRoutes: Routes = [
        path: 'items/:id',
        component: MutualBucketItemsComponent
      },
+     {
+        path: 'test',
+        component: InboxComponent
+      }
  ];
 
  export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

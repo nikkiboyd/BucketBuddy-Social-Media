@@ -76,4 +76,8 @@ export class UserService {
     this.userToMessage = this.database.list('users/' + userId + '/comments');
     this.userToMessage.push(comment);
   }
+
+  getMessageInboxByUserId(userId:string){
+    return this.database.list('users/' + userId + '/comments');
+  }
 }
