@@ -1,6 +1,6 @@
 <div class="messageHeader">
-    <h3>Incoming Messages</h3>
-  </div>
+    <h3>Inbox</h3>
+</div>
   <div class="card main-head">
     <div *ngFor="let message of currentUserInbox | async | reverse">
       <p class="text-bubble">{{message.comment}}</p>

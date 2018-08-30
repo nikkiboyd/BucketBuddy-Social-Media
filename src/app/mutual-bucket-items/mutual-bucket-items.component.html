@@ -1,28 +1,35 @@
 <div class="top">
-  <a class="yellow darken-2 btn edit-button" routerLink="/profileuser"><<< Back to profile</a>
-  <h2>All users with <span class="itemTitle">{{itemTitle}}</span> as a Bucket List Item</h2>
-  <p>Here are some users you should match with to accomplish your goal of <span class="itemTitle">{{itemTitle}}</span></p>
-<div id="matches">
-  <div class="row align-center header">
-    <div class="col-md-5">
-      <h4>User Name</h4>
-    </div>
-    <div class="col-md-7">
-      <h4>Message User</h4>
+  <a id="back" class="yellow darken-2 btn edit-button" routerLink="/profileuser"><i class="material-icons left">arrow_back</i>My Profile</a>
+  <h2 class="greeting">Users who also want to "<span class="itemTitle">{{itemTitle}}</span>"...</h2>
+  <div class="card">
+    <div id="matches">
+      <div class="row align-center header">
+        <div class="col-md-5">
+          <h4>Users</h4>
+        </div>
+        <div class="col-md-7">
+          <h4>Message User</h4>
+        </div>
+      </div>
+      <div class="row lower" *ngFor="let user of bucketItemMatches">
+        <div class="col-md-5">
+          <h6><a routerLink="/buddy/{{user.$key}}">{{user.firstName}} {{user.lastName}}</a></h6>
+          <hr>
+          <p class="about">About {{user.firstName}}...</p>
+          <p>{{user.bio}}</p>
+        </div>
+        <div class="col-md-7">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea #newBio  #message id="icon_prefix2" class="materialize-textarea">Hey, {{user.firstName}}! Wanna knock "{{itemTitle}}" off your bucket list together?</textarea>
+            </div>
+          </div>
+          <div class="messageButton">
+            <a class="yellow darken-2 btn edit-button" (click)="messageUser(currentUserID, user.$key, message.value); message.value=''">Message</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="row lower" *ngFor="let user of bucketItemMatches">
-    <div class="col-md-5">
-      <p><a routerLink="/buddy/{{user.$key}}">{{user.firstName}} {{user.lastName}}</a></p>
-    </div>
-    <div class="col-md-7">
-      <div class="messageBox">
-        <textarea  #newBio rows="6" cols="50" #message>Ask {{user.firstName}} to {{itemTitle}} with you!</textarea>
-      </div>
-      <div class="messageButton">
-        <a class="yellow darken-2 btn edit-button" (click)="messageUser(currentUserID, user.$key, message.value); message.value=''">Message</a>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
