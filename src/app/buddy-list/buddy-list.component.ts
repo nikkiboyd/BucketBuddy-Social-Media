@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { User } from '../models/user.model';
 import { UserService } from '../user.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-buddy-list',
@@ -14,46 +15,55 @@ import { UserService } from '../user.service';
 })
 export class BuddyListComponent implements OnInit {
   private user; //page being viewed
+  private userLive;
   private userId; // id of user whose page is being used
   private loggedInUser; // current logged in user
+  private loggedInUserLive;
+  private loggedInUserId;
   private homeProfile: Boolean = false; // whether we are on the currently logged in user's page or not; true if we are
   private alreadyBuddied: Boolean = false;
   private buddyList;
   private buddyObjects;
+  private viewedBuddyList;
+  private viewedBuddyObjects;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-    this.userId = "0"; //urlParameters['id'];
+      this.userId = urlParameters['id'];
+      });
+
+    this.authService.user.subscribe(u => {
+      this.loggedInUserId = u.uid;
+      this.userService.getUserById(this.loggedInUserId).subscribe(dataLastEmittedFromObserver => {
+        this.loggedInUser = dataLastEmittedFromObserver;
+        if (this.userId != undefined) {
+          this.homeProfile = false;
+          this.userLive = this.userService.getUserById(this.userId);
+          this.user = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
+            this.user = dataLastEmittedFromObserver;
+            this.buddyList = this.user.friends;
+            this.createViewedBuddyObjects();
+          });
+        } else {
+          this.homeProfile = true;
+          this.buddyList = this.loggedInUser.friends;
+          this.createBuddyObjects();
+        }
+      });
     });
 
-    this.user = this.userService.getUserById('0');
-    // here we will send the userId via the URL
-    this.loggedInUser = this.userService.getUserById('0');
-    // here we will send the userId via the permanent logged in user Id established at authentication
-    this.loggedInUser.subscribe(dataLastEmittedFromObserver => {
-      this.buddyList = dataLastEmittedFromObserver.friends;
-      this.createBuddyObjects();
-    });
-
-
-    //
-    // this.loggedInUser.subscribe(loggedInUser => {
-    //   if (loggedInUser == null) {
-    //     this.loggedIn = false;
-    //   } else {
-    //     this.loggedIn = true;
-    //   }
-    // })
   }
 
   createBuddyObjects() {
+
     let tempBuddyObjects = [];
     this.buddyList.forEach((buddyId) => {
     let buddyToAdd; this.userService.getUserById(buddyId).subscribe(dataLastEmittedFromObserver => {
@@ -64,20 +74,30 @@ export class BuddyListComponent implements OnInit {
     });
   }
 
+  createViewedBuddyObjects() {
+      let tempBuddyObjects = [];
+      this.buddyList.forEach((buddyId) => {
+      let buddyToAdd; this.userService.getUserById(buddyId).subscribe(dataLastEmittedFromObserver => {
+        buddyToAdd = dataLastEmittedFromObserver;
+        tempBuddyObjects.push(buddyToAdd);
+      });
+      this.buddyObjects = tempBuddyObjects;
+      });
+    }
+
+
   addBuddy() {
+    this.loggedInUserLive = this.userService.getUserById(this.loggedInUserId);
     this.buddyList.push(this.userId);
-    let theUser = this.userService.getUserById('0');
-    // here we will send in the userId via the loggedInUser
-    theUser.update({friends: this.buddyList});
+    this.loggedInUserLive.update({friends: this.buddyList});
     this.alreadyBuddied = true;
   }
 
   deleteBuddy() {
       let index = this.buddyList.indexOf(this.userId);
       this.buddyList.splice(index, 1);
-      console.log(this.buddyList);
-      let theUser = this.userService.getUserById('0');
-      theUser.update({friends: this.buddyList});
+      this.loggedInUserLive = this.userService.getUserById(this.loggedInUserId);
+      this.loggedInUserLive.update({friends: this.buddyList});
       this.alreadyBuddied = false;
   }
 
@@ -85,6 +105,5 @@ export class BuddyListComponent implements OnInit {
     this.router.navigate(['buddy', id]);
   }
 
-  }
 
-  // Need to find buddy info for display via id
+  }
