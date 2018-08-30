@@ -37,7 +37,9 @@ export class MutualBucketItemsComponent implements OnInit {
     });
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
-      this.currentUser = this.userService.getUserById(u.uid);
+      this.userService.getUserById(u.uid).subscribe(dataLastEmittedFromObserver => {
+        this.currentUser = dataLastEmittedFromObserver;
+      });;
     })
   }
 
@@ -54,10 +56,10 @@ export class MutualBucketItemsComponent implements OnInit {
       this.bucketItemMatches = usersThatMatchQuery;
     }
 
-messageUser(senderName:string, senderId:string, userId:string, message:string){
+messageUser(senderId:string, userId:string, message:string){
   let currentDate = new Date().toString();
+  let senderName = this.currentUser.firstName + " " + this.currentUser.lastName;
   let comment = new Comment(senderName, senderId, message, currentDate, "false");
-  console.log(comment);
-  // this.userService.messageUser(userId, message);
+  this.userService.messageUser(comment, userId);
 }
 }

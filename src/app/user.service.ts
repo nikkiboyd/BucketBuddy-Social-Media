@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './models/user.model';
 import { BucketList } from './models/bucketlist.model';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { Comment } from './models/comment.model';
 
 
 @Injectable()
@@ -71,9 +72,8 @@ export class UserService {
     });
   }
 
-  messageUser(userId:string, message:string){
-
+  messageUser(comment: Comment, userId: string){
     this.userToMessage = this.database.list('users/' + userId + '/comments');
-    this.userToMessage.push(message);
+    this.userToMessage.push(comment);
   }
 }
