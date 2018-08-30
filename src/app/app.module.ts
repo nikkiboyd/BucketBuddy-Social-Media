@@ -23,6 +23,7 @@ import { BuddyDetailComponent } from './buddy-detail/buddy-detail.component';
 import { MutualBucketItemsComponent } from './mutual-bucket-items/mutual-bucket-items.component';
 import { BucketListBuddyComponent } from './bucket-list-buddy/bucket-list-buddy.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { MessageBoxComponent } from './message-box/message-box.component';
 
 
 export const firebaseConfig = {
@@ -47,7 +48,8 @@ export const firebaseConfig = {
     BuddyDetailComponent,
     MutualBucketItemsComponent,
     BucketListBuddyComponent,
-    InboxComponent
+    InboxComponent,
+    MessageBoxComponent
   ],
   imports: [
     BrowserModule,
