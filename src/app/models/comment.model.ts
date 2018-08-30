@@ -3,7 +3,6 @@ export class Comment {
     public senderName: string,
     public senderId: string,
     public comment: string,
-    public dateSent: string,
-    public replied: string
+    public dateSent: string
   ) {}
 }

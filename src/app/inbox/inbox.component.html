@@ -5,7 +5,7 @@
   <div class="card main-head">
     <div *ngFor="let message of currentUserInbox | async">
       <p class="text-bubble">{{message.comment}}</p>
-      <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span *ngIf="message.replied == 'false'" (click)="initiateReply(message.$key)" class="messageBack">Message Back</span><span *ngIf="message.replied == 'true'">Already Replied</span></p>
+      <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span  (click)="initiateReply(message.$key)" class="messageBack">Message Back</span></p>
       <div class="bigBox" *ngIf="showOrHideReply == message.$key">
         <div class="form-group" >
           <input type="text" name="message" #messageReply>

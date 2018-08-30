@@ -29,7 +29,10 @@ h3 {
     margin: 10px 10px 0 10px;
     color: white;
 }
-
+.card {
+    max-height: 500px;
+    overflow: scroll;
+}
 .senderName {
     margin-left: 10px;
 }

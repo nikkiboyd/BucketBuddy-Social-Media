@@ -13,6 +13,7 @@ import { Comment } from '../models/comment.model';
 export class InboxComponent implements OnInit {
   currentUserInbox;
   currentUserID;
+  currentUser;
   showOrHideReply;
 
   constructor(private authService: AuthenticationService, private userService: UserService) { }
@@ -22,7 +23,10 @@ export class InboxComponent implements OnInit {
     this.authService.user.subscribe(u => {
       this.currentUserID = u.uid;
       this.currentUserInbox = this.userService.getMessageInboxByUserId(u.uid);
-    })
+      this.userService.getUserById(u.uid).subscribe(dataLastEmittedFromObserver => {
+        this.currentUser = dataLastEmittedFromObserver;
+      });
+    });
   }
 
   initiateReply(senderId:string){
@@ -31,9 +35,10 @@ export class InboxComponent implements OnInit {
 
 
   messageUser(senderId:string, message:string){
+    this.showOrHideReply = 0;
     let currentDate = new Date().toString();
     let senderName = this.currentUser.firstName + " " + this.currentUser.lastName;
-    let comment = new Comment(senderName, senderId, message, currentDate, "false");
+    let comment = new Comment(senderName, senderId, message, currentDate);
     this.userService.messageUser(comment, this.currentUserID);
   }
 
