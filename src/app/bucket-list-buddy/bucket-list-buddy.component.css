@@ -1,0 +1,142 @@
+.top .completed,
+.top .notCompleted {
+    border: 1px solid #ffccbc;
+    padding: 10px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+}
+.top .completed{
+  background: #e8e8e8;
+}
+
+.top .completed:last-of-type,
+.top .notCompleted:last-of-type {
+    border-bottom-width: 1px;
+}
+.top input[type=checkbox] {
+  transform: scale(2) !important;
+  }
+
+.top .row p {
+  margin-bottom: 0px;
+}
+.top .vertical-align {
+/* display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+height: 100%;
+-webkit-box-align: center;
+-ms-flex-align: center;
+align-items: center;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+justify-content: center; */
+text-align: center;
+}
+
+.top .row label {
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+
+.top #item-title {
+  float: left;
+}
+
+.top .margin-top{
+  margin-top:10px;
+}
+
+.top .row .col-sm-5,
+.top .row .col-sm-2,
+.top .row .col-sm-3 {
+    border-right: 1px dashed #ffccbc;
+}
+
+.top .row .col-sm-2:last-of-type {
+    border-right: 0px;
+}
+
+.top .align-center {
+  text-align: center;
+}
+
+.top .align-left {
+  text-align: left;
+}
+
+.top .header{
+    margin-top: 2rem;
+    background: #f4511e;
+    color: white;
+    border: 1px solid #ffccbc;
+    padding: 10px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+}
+
+.top .header h4{
+  margin-bottom:0px;
+}
+
+.top .edit-icon{
+  width: 21px;
+  margin-left: 10px;
+  float: right;
+}
+
+.top .check{
+  text-align: center;
+}
+
+.top .pretty {
+    font-size: 40px;
+    margin-right: 0px;
+}
+
+.top .pretty input:checked ~ .state.p-primary-o .icon, .pretty input:checked ~ .state.p-primary-o .svg, .pretty input:checked ~ .state.p-primary-o svg, .pretty.p-toggle .state.p-primary-o .icon, .pretty.p-toggle .state.p-primary-o .svg, .pretty.p-toggle .state.p-primary-o svg {
+    color: black;
+    stroke: black;
+}
+
+.top .pretty input:checked ~ .state.p-primary-o label:before, .pretty.p-toggle .state.p-primary-o label:before {
+    border-color: #ff3d00;
+}
+
+.top .bucketBox a{
+  color:#ff3d00;
+  font-weight: 700;
+}
+
+.bucketbox {
+  border-radius: 5px;
+}
+
+.top .bucketBox a:hover{
+  color:black;
+}
+
+.top .fa-heart:before {
+    font-size: 29px;
+    color: red;
+}
+
+.top label {
+    font-size: 40px;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    pointer-events: inherit;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.icon-yellow {
+  color: #f9a825;
+}
+
+a:hover{
+ cursor: pointer;
+}
