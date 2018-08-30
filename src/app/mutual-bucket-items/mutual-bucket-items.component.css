@@ -1,7 +1,60 @@
-#matches {
-  margin-top: 3rem;
+
+.top .header{
+    margin-top: 2rem;
+    background: #f4511e;
+    color: white;
+    border: 1px solid #ffccbc;
+    padding: 10px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
 }
 
-.itemTitle {
-  color:red;
+.top .header h4{
+  margin-bottom:0px;
+  margin-top:0px;
+      font-size: 20px;
+}
+
+#matches {
+  text-align: center;
+}
+
+.header .col-md-4{
+    border-right: 1px dashed #ffccbc;
+}
+
+.header .col-md-4:last-of-type{
+    border-right: 0px;
+}
+
+.lower .col-md-4:last-of-type{
+    border-right: 0px;
+}
+
+.lower{
+    border: 1px solid #ffccbc;
+    padding: 10px;
+    border-bottom-width: 0px;
+    margin-bottom: 0px;
+}
+
+.lower .col-md-4{
+    border-right: 1px dashed #ffccbc;
+}
+
+.lower:last-of-type {
+  border-bottom-width: 1px;
+}
+
+.messageBox{
+    width: 80%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.messageButton{
+    width: 19%;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
 }

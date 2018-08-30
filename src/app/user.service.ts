@@ -8,6 +8,7 @@ import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/databas
 export class UserService {
   users: FirebaseListObservable<any[]>;
   bucketList: FirebaseListObservable<any[]>;
+  userToMessage: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
   this.users = database.list('users');
@@ -22,7 +23,6 @@ export class UserService {
   }
 
   createNewUserInTable(userId: string, userEmail: string){
-    console.log("in the create new user method")
     var userEmailpath = this.database.object('users/'+userId);
     userEmailpath.set(
       {
@@ -69,5 +69,11 @@ export class UserService {
     bucketListItem.update({
       title: newTitle
     });
+  }
+
+  messageUser(userId:string, message:string){
+
+    this.userToMessage = this.database.list('users/' + userId + '/comments');
+    this.userToMessage.push(message);
   }
 }
