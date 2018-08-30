@@ -55,6 +55,7 @@ export class BuddyListComponent implements OnInit {
         } else {
           this.homeProfile = true;
           this.buddyList = this.loggedInUser.friends;
+          console.log(this.buddyList.length);
           this.createBuddyObjects();
         }
       });
