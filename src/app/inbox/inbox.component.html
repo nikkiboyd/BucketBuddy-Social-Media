@@ -4,7 +4,8 @@
   </div>
   <div class="card main-head">
 <div *ngFor="let message of currentUserInbox | async">
-  <p>{{message.comment}}</p>
+  <p class="text-bubble">{{message.comment}}</p>
+  <p class="senderName">Sent by: <a routerLink="/buddy/{{message.senderId}}">{{message.senderName}}</a> | Date sent: {{message.dateSent  | date:'short'}} | <span *ngIf="message.replied == 'false'">Message Back</span><span *ngIf="message.replied == 'true'">Already Replied</span></p>
 </div>
   </div>
 </div>

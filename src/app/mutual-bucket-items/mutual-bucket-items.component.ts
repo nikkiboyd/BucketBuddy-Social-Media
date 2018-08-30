@@ -60,6 +60,6 @@ messageUser(senderId:string, userId:string, message:string){
   let currentDate = new Date().toString();
   let senderName = this.currentUser.firstName + " " + this.currentUser.lastName;
   let comment = new Comment(senderName, senderId, message, currentDate, "false");
-  this.userService.messageUser(comment, "xbrsFd7ju0Vt1PKmzeonTz2wODv2");
+  this.userService.messageUser(comment, userId);
 }
 }

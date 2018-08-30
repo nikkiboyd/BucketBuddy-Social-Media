@@ -21,3 +21,15 @@ h3 {
     line-height: 110%;
     margin: 0;
 }
+
+.text-bubble {
+    padding: 14px;
+    background: #f4511e;
+    border-radius: 24px 24px 24px 0;
+    margin: 10px 10px 0 10px;
+    color: white;
+}
+
+.senderName {
+    margin-left: 10px;
+}
