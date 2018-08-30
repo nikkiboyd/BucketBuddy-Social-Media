@@ -1,5 +1,5 @@
 <div class="top row" id="matches">
-  <div class="bucketBox col-md 10">
+  <div class="bucketBox col-md-9">
     <div class="row align-center header">
       <div class="col-sm-3">
         <h4>Goal</h4>
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <div id="newBucketItem" class="card col-md-2">
+  <div id="newBucketItem" class="card col-md-3">
     <h4>Onto my next adventure...</h4>
     <div class="form-group">
       <input class="form-control" type="text" name="title" #title placeholder="...what will it be?">
@@ -104,5 +104,6 @@
       </select>
     </div>
     <a id="new-item" (click)="saveNewBucketItem(title.value, category.value); title.value = ' '" class="yellow darken-2 btn-small"><i class="material-icons icon-white right">view_list</i>ADD</a>
+<app-inbox></app-inbox>
   </div>
 </div>
